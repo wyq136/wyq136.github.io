@@ -3,17 +3,30 @@
 <head>
   <meta charset="utf-8">
   
-  <title>hf</title>
+  <title>Ubuntu 搭建 VPN 服务器 | hf</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="hf">
-<meta property="og:url" content="http://hf136.github.io/index.html">
+  <meta name="description" content="安装pptpd1$ sudo apt-get install pptpd
+修改/etc/ppp/chap-secrets文件四列分别是用户名、服务类型（与pptpd-options里name保持一致）、密码、IP限制（不做限制写 * 即可）。
+例如: user pptpd passwd *
+修改/etc/ppp/pptpd-options文件取消注释 ms-dns ，
+ms-dns 8.8.8.8">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu 搭建 VPN 服务器">
+<meta property="og:url" content="http://hf136.github.io/2015/12/18/vpnserver/index.html">
 <meta property="og:site_name" content="hf">
-<meta property="og:description">
+<meta property="og:description" content="安装pptpd1$ sudo apt-get install pptpd
+修改/etc/ppp/chap-secrets文件四列分别是用户名、服务类型（与pptpd-options里name保持一致）、密码、IP限制（不做限制写 * 即可）。
+例如: user pptpd passwd *
+修改/etc/ppp/pptpd-options文件取消注释 ms-dns ，
+ms-dns 8.8.8.8">
+<meta property="og:updated_time" content="2015-12-19T14:51:13.502Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hf">
-<meta name="twitter:description">
+<meta name="twitter:title" content="Ubuntu 搭建 VPN 服务器">
+<meta name="twitter:description" content="安装pptpd1$ sudo apt-get install pptpd
+修改/etc/ppp/chap-secrets文件四列分别是用户名、服务类型（与pptpd-options里name保持一致）、密码、IP限制（不做限制写 * 即可）。
+例如: user pptpd passwd *
+修改/etc/ppp/pptpd-options文件取消注释 ms-dns ，
+ms-dns 8.8.8.8">
   
     <link rel="alternative" href="/atom.xml" title="hf" type="application/atom+xml">
   
@@ -23,9 +36,6 @@
   <link rel="stylesheet" href="/css/style.css" type="text/css">
   <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  
-    
-    
   
 </head>
 <body>
@@ -179,90 +189,7 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap">
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/12/18/hello-world/" class="article-date">
-  	<time datetime="2015-12-18T13:46:46.151Z" itemprop="datePublished">2015-12-18</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/18/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start"><a href="#Quick_Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create_a_new_post"><a href="#Create_a_new_post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server"><a href="#Run_server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files"><a href="#Generate_static_files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites"><a href="#Deploy_to_remote_sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-    
-        <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
-        <script>
-        var yiliaConfig = {
-        fancybox: true,
-        mathjax: true,
-        animate: true,
-        isHome: true,
-        isPost: false,
-        isArchive: false,
-        isTag: false,
-        isCategory: false,
-        open_in_new: false
-        }
-        </script>
-     
-
-  
-    <article id="post-vpnserver" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-vpnserver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2015/12/18/vpnserver/" class="article-date">
@@ -278,12 +205,23 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/18/vpnserver/">Ubuntu 搭建 VPN 服务器</a>
+    <h1 class="article-title" itemprop="name">
+      Ubuntu 搭建 VPN 服务器
     </h1>
   
 
       </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VPN/">VPN</a></li></ul>
+	</div>
+
+        <div class="clearfix"></div>
+      </div>
       
     
     <div class="article-entry" itemprop="articleBody">
@@ -309,23 +247,88 @@ iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
       
     </div>
     
-    <div class="article-info article-info-index">
-      
-      
-
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VPN/">VPN</a></li></ul>
-	</div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
   </div>
+  
+    
+<div class="copyright">
+  <p><span>本文标题:</span><a href="/2015/12/18/vpnserver/">Ubuntu 搭建 VPN 服务器</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 hf 的个人博客">hf</a></p>
+  <p><span>发布时间:</span>2015年12月18日 - 16时49分</p>
+  <p><span>最后更新:</span>2015年12月19日 - 22时51分</p>
+  <p>
+    <span>原始链接:</span><a class="post-url" href="/2015/12/18/vpnserver/" title="Ubuntu 搭建 VPN 服务器">http://hf136.github.io/2015/12/18/vpnserver/</a>
+    <span class="copy-path" data-clipboard-text="原文: http://hf136.github.io/2015/12/18/vpnserver/　　作者: hf" title="点击复制文章链接">
+        <i class="fa fa-clipboard"></i>
+    </span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。</p>
+  <script src="/js/clipboard.min.js"></script>
+  <script> var clipboard = new Clipboard('.copy-path'); </script>
+</div>
+
+
+
+
+<nav id="article-nav">
+  
+    <div id="article-nav-newer" class="article-nav-title">
+      <a href="/2015/12/18/hello-world/">
+        Hello World
+      </a>
+    </div>
+  
+  
+</nav>
+
   
 </article>
 
+<!-- 默认显示文章目录，在文章---前输入toc: false关闭目录 -->
+<!-- Show TOC and tocButton in default, Hide TOC via putting "toc: false" before "---" at [post].md -->
+<div id="toc" class="toc-article">
+<strong class="toc-title">文章目录</strong>
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u5B89_u88C5pptpd"><span class="toc-number">1.</span> <span class="toc-text">安装pptpd</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4FEE_u6539/etc/ppp/chap-secrets_u6587_u4EF6"><span class="toc-number">2.</span> <span class="toc-text">修改/etc/ppp/chap-secrets文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4FEE_u6539/etc/ppp/pptpd-options_u6587_u4EF6"><span class="toc-number">3.</span> <span class="toc-text">修改/etc/ppp/pptpd-options文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4FEE_u6539/etc/pptpd-conf_u6587_u4EF6"><span class="toc-number">4.</span> <span class="toc-text">修改/etc/pptpd.conf文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4FEE_u6539/etc/sysctl-conf"><span class="toc-number">5.</span> <span class="toc-text">修改/etc/sysctl.conf</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u8BBE_u7F6Eiptables"><span class="toc-number">6.</span> <span class="toc-text">设置iptables</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4FEE_u6539/etc/rc-local_u6587_u4EF6"><span class="toc-number">7.</span> <span class="toc-text">修改/etc/rc.local文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u6700_u540E_u91CD_u542Fpptpd_u670D_u52A1"><span class="toc-number">8.</span> <span class="toc-text">最后重启pptpd服务</span></a></li></ol>
+</div>
+<style type="text/css">
+  .left-col .switch-btn {
+    display: none;
+  }
+  .left-col .switch-area {
+    display: none;
+  }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<script type="text/javascript">
+  var toc_button= document.getElementById("tocButton");
+  var toc_div= document.getElementById("toc");
+  /* Show or hide toc when click on tocButton.
+  通过点击设置的按钮显示或者隐藏文章目录.*/
+  toc_button.onclick=function(){
+  if(toc_div.style.display=="none"){
+  toc_div.style.display="block";
+  toc_button.value="隐藏目录";
+  document.getElementById("switch-btn").style.display="none";
+  document.getElementById("switch-area").style.display="none";
+  }
+  else{
+  toc_div.style.display="none";
+  toc_button.value="显示目录";
+  document.getElementById("switch-btn").style.display="block";
+  document.getElementById("switch-area").style.display="block";
+  }
+  }
+</script>
+
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+  if ($(".toc").length < 1) {
+    $("#toc").css("display","none");
+    $("#tocButton").css("display","none");
+    $(".switch-btn").css("display","block");
+    $(".switch-area").css("display","block");
+  }
+</script>
 
 
 
@@ -333,6 +336,29 @@ iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 
 
 
+
+    <style type="text/css">
+    #scroll {
+      display: none;
+    }
+    </style>
+    <div class="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    </div>
+
+
+  
+    <div  class="post-nav-button">
+    <a href="/2015/12/18/hello-world/" title="上一篇: Hello World">
+    <i class="fa fa-angle-left"></i>
+    </a>
+    <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+    </div>
+  
+  
+    
 
 
 
@@ -343,8 +369,8 @@ iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
         fancybox: true,
         mathjax: true,
         animate: true,
-        isHome: true,
-        isPost: false,
+        isHome: false,
+        isPost: true,
         isArchive: false,
         isTag: false,
         isCategory: false,
@@ -352,9 +378,6 @@ iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
         }
         </script>
      
-
-  
-  
 </div>
       <footer id="footer">
   <div class="outer">
@@ -382,20 +405,6 @@ iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 </footer>
     </div>
     
-	<script>
-		var yiliaConfig = {
-			fancybox: false,
-			mathjax: true,
-			animate: true,
-			isHome: true,
-			isPost: false,
-			isArchive: false,
-			isTag: false,
-			isCategory: false,
-			open_in_new: false
-		}
-	</script>
-
 
 <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
 <script src="/js/main.js" type="text/javascript"></script>

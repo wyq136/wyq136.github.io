@@ -1903,7 +1903,6 @@ li:hover {
 }
 .article-entry code {
   color: #808080;
-  background: rgba(248,237,223,0.5);
   padding: 0 0.3em;
   -webkit-border-radius: 7px;
   border-radius: 7px;

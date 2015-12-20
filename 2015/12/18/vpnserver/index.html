@@ -5,28 +5,16 @@
   
   <title>Ubuntu 搭建 VPN 服务器 | hf</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="安装pptpd1$ sudo apt-get install pptpd
-修改/etc/ppp/chap-secrets文件四列分别是用户名、服务类型（与pptpd-options里name保持一致）、密码、IP限制（不做限制写 * 即可）。
-例如: user pptpd passwd *
-修改/etc/ppp/pptpd-options文件取消注释 ms-dns ，
-ms-dns 8.8.8.8">
+  <meta name="description" content="安装pptpd1$ sudo apt-get install pptpd">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ubuntu 搭建 VPN 服务器">
 <meta property="og:url" content="http://hf136.github.io/2015/12/18/vpnserver/index.html">
 <meta property="og:site_name" content="hf">
-<meta property="og:description" content="安装pptpd1$ sudo apt-get install pptpd
-修改/etc/ppp/chap-secrets文件四列分别是用户名、服务类型（与pptpd-options里name保持一致）、密码、IP限制（不做限制写 * 即可）。
-例如: user pptpd passwd *
-修改/etc/ppp/pptpd-options文件取消注释 ms-dns ，
-ms-dns 8.8.8.8">
-<meta property="og:updated_time" content="2015-12-20T03:15:09.855Z">
+<meta property="og:description" content="安装pptpd1$ sudo apt-get install pptpd">
+<meta property="og:updated_time" content="2015-12-20T05:51:03.153Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu 搭建 VPN 服务器">
-<meta name="twitter:description" content="安装pptpd1$ sudo apt-get install pptpd
-修改/etc/ppp/chap-secrets文件四列分别是用户名、服务类型（与pptpd-options里name保持一致）、密码、IP限制（不做限制写 * 即可）。
-例如: user pptpd passwd *
-修改/etc/ppp/pptpd-options文件取消注释 ms-dns ，
-ms-dns 8.8.8.8">
+<meta name="twitter:description" content="安装pptpd1$ sudo apt-get install pptpd">
   
     <link rel="alternative" href="/atom.xml" title="hf" type="application/atom+xml">
   
@@ -232,6 +220,7 @@ ms-dns 8.8.8.8">
       
           
         <h3 id="u5B89_u88C5pptpd"><a href="#u5B89_u88C5pptpd" class="headerlink" title="安装pptpd"></a>安装pptpd</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install pptpd</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <h3 id="u4FEE_u6539/etc/ppp/chap-secrets_u6587_u4EF6"><a href="#u4FEE_u6539/etc/ppp/chap-secrets_u6587_u4EF6" class="headerlink" title="修改/etc/ppp/chap-secrets文件"></a>修改/etc/ppp/chap-secrets文件</h3><pre><code>四列分别是用户名、服务类型（与pptpd-options里name保持一致）、密码、IP限制（不做限制写 * 即可）。
 例如: user pptpd passwd *
 </code></pre><h3 id="u4FEE_u6539/etc/ppp/pptpd-options_u6587_u4EF6"><a href="#u4FEE_u6539/etc/ppp/pptpd-options_u6587_u4EF6" class="headerlink" title="修改/etc/ppp/pptpd-options文件"></a>修改/etc/ppp/pptpd-options文件</h3><pre><code>取消注释 ms-dns ，
@@ -258,7 +247,7 @@ iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
   <p><span>本文标题:</span><a href="/2015/12/18/vpnserver/">Ubuntu 搭建 VPN 服务器</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 hf 的个人博客">hf</a></p>
   <p><span>发布时间:</span>2015年12月18日 - 16时49分</p>
-  <p><span>最后更新:</span>2015年12月20日 - 11时15分</p>
+  <p><span>最后更新:</span>2015年12月20日 - 13时51分</p>
   <p>
     <span>原始链接:</span><a class="post-url" href="/2015/12/18/vpnserver/" title="Ubuntu 搭建 VPN 服务器">http://hf136.github.io/2015/12/18/vpnserver/</a>
     <span class="copy-path" data-clipboard-text="原文: http://hf136.github.io/2015/12/18/vpnserver/　　作者: hf" title="点击复制文章链接">

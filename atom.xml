@@ -42,8 +42,9 @@
     <link href="http://hf136.github.io/2015/12/18/vpnserver/"/>
     <id>http://hf136.github.io/2015/12/18/vpnserver/</id>
     <published>2015-12-18T08:49:56.000Z</published>
-    <updated>2015-12-20T03:15:09.855Z</updated>
+    <updated>2015-12-20T05:51:03.153Z</updated>
     <content type="html"><![CDATA[<h3 id="u5B89_u88C5pptpd"><a href="#u5B89_u88C5pptpd" class="headerlink" title="安装pptpd"></a>安装pptpd</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install pptpd</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <h3 id="u4FEE_u6539/etc/ppp/chap-secrets_u6587_u4EF6"><a href="#u4FEE_u6539/etc/ppp/chap-secrets_u6587_u4EF6" class="headerlink" title="修改/etc/ppp/chap-secrets文件"></a>修改/etc/ppp/chap-secrets文件</h3><pre><code>四列分别是用户名、服务类型（与pptpd-options里name保持一致）、密码、IP限制（不做限制写 * 即可）。
 例如: user pptpd passwd *
 </code></pre><h3 id="u4FEE_u6539/etc/ppp/pptpd-options_u6587_u4EF6"><a href="#u4FEE_u6539/etc/ppp/pptpd-options_u6587_u4EF6" class="headerlink" title="修改/etc/ppp/pptpd-options文件"></a>修改/etc/ppp/pptpd-options文件</h3><pre><code>取消注释 ms-dns ，
@@ -61,7 +62,8 @@ iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 </code></pre><h3 id="u6700_u540E_u91CD_u542Fpptpd_u670D_u52A1"><a href="#u6700_u540E_u91CD_u542Fpptpd_u670D_u52A1" class="headerlink" title="最后重启pptpd服务"></a>最后重启pptpd服务</h3><pre><code>sudo /etc/init.d/pptpd restart
 </code></pre>]]></content>
     <summary type="html">
-    <![CDATA[<h3 id="u5B89_u88C5pptpd"><a href="#u5B89_u88C5pptpd" class="headerlink" title="安装pptpd"></a>安装pptpd</h3><figure class="highlight bash"><tab]]>
+    <![CDATA[<h3 id="u5B89_u88C5pptpd"><a href="#u5B89_u88C5pptpd" class="headerlink" title="安装pptpd"></a>安装pptpd</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install pptpd</span><br></pre></td></tr></table></figure>]]>
+    
     </summary>
     
       <category term="Linux" scheme="http://hf136.github.io/tags/Linux/"/>

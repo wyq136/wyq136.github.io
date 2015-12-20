@@ -285,23 +285,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="u5B89_u88C5pptpd"><a href="#u5B89_u88C5pptpd" class="headerlink" title="安装pptpd"></a>安装pptpd</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install pptpd</span><br></pre></td></tr></table></figure>
-<h3 id="u4FEE_u6539/etc/ppp/chap-secrets_u6587_u4EF6"><a href="#u4FEE_u6539/etc/ppp/chap-secrets_u6587_u4EF6" class="headerlink" title="修改/etc/ppp/chap-secrets文件"></a>修改/etc/ppp/chap-secrets文件</h3><pre><code>四列分别是用户名、服务类型（与pptpd-options里name保持一致）、密码、IP限制（不做限制写 * 即可）。
-例如: user pptpd passwd *
-</code></pre><h3 id="u4FEE_u6539/etc/ppp/pptpd-options_u6587_u4EF6"><a href="#u4FEE_u6539/etc/ppp/pptpd-options_u6587_u4EF6" class="headerlink" title="修改/etc/ppp/pptpd-options文件"></a>修改/etc/ppp/pptpd-options文件</h3><pre><code>取消注释 ms-dns ，
-ms-dns 8.8.8.8
-</code></pre><h3 id="u4FEE_u6539/etc/pptpd-conf_u6587_u4EF6"><a href="#u4FEE_u6539/etc/pptpd-conf_u6587_u4EF6" class="headerlink" title="修改/etc/pptpd.conf文件"></a>修改/etc/pptpd.conf文件</h3><pre><code>设置VPN连通后服务器及客户端的client的ip。
-localip 192.168.10.1
-remoteip 192.168.10.100-120
-</code></pre><h3 id="u4FEE_u6539/etc/sysctl-conf"><a href="#u4FEE_u6539/etc/sysctl-conf" class="headerlink" title="修改/etc/sysctl.conf"></a>修改/etc/sysctl.conf</h3><pre><code>取消注释 net.ipv4.ip_forward=1
-执行sudo /sbin/sysctl -p重新加载配置
-然后使新配置生效：
-/etc/init.d/procps restart
-</code></pre><h3 id="u8BBE_u7F6Eiptables"><a href="#u8BBE_u7F6Eiptables" class="headerlink" title="设置iptables"></a>设置iptables</h3><pre><code>sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
-</code></pre><h3 id="u4FEE_u6539/etc/rc-local_u6587_u4EF6"><a href="#u4FEE_u6539/etc/rc-local_u6587_u4EF6" class="headerlink" title="修改/etc/rc.local文件"></a>修改/etc/rc.local文件</h3><pre><code>在exit 0这行上面加上
-iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
-</code></pre><h3 id="u6700_u540E_u91CD_u542Fpptpd_u670D_u52A1"><a href="#u6700_u540E_u91CD_u542Fpptpd_u670D_u52A1" class="headerlink" title="最后重启pptpd服务"></a>最后重启pptpd服务</h3><pre><code>sudo /etc/init.d/pptpd restart
-</code></pre>
+              <h3 id="u5B89_u88C5pptpd"><a href="#u5B89_u88C5pptpd" class="headerlink" title="安装pptpd"></a>安装pptpd</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install pptpd</span><br></pre></td></tr></table></figure>
+          
       
     </div>
     
@@ -318,6 +303,10 @@ iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VPN/">VPN</a></li></ul>
 	</div>
 
+      
+        <p class="article-more-link">
+          <a  href="/2015/12/18/vpnserver/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>

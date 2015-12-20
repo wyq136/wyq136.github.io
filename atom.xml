@@ -4,7 +4,7 @@
   <subtitle><![CDATA[仰望星空，寻找属于自己的路]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://hf136.github.io/"/>
-  <updated>2015-12-20T04:54:42.160Z</updated>
+  <updated>2015-12-20T06:32:47.389Z</updated>
   <id>http://hf136.github.io/</id>
   
   <author>
@@ -18,9 +18,10 @@
     <title><![CDATA[Hello World]]></title>
     <link href="http://hf136.github.io/2015/12/20/hello-world/"/>
     <id>http://hf136.github.io/2015/12/20/hello-world/</id>
-    <published>2015-12-20T04:54:42.160Z</published>
-    <updated>2015-12-20T04:54:42.160Z</updated>
+    <published>2015-12-20T06:32:47.389Z</published>
+    <updated>2015-12-20T06:32:47.389Z</updated>
     <content type="html"><![CDATA[<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<a id="more"></a>
 <h2 id="Quick_Start"><a href="#Quick_Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create_a_new_post"><a href="#Create_a_new_post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
 <p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
 <h3 id="Run_server"><a href="#Run_server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
@@ -31,7 +32,7 @@
 <p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
 ]]></content>
     <summary type="html">
-    <![CDATA[Welcome to Hexo! This is your very first post.]]>
+    <![CDATA[<p>Welcome to <a href="http://hexo.io/">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>]]>
     
     </summary>
     
@@ -42,7 +43,7 @@
     <link href="http://hf136.github.io/2015/12/18/vpnserver/"/>
     <id>http://hf136.github.io/2015/12/18/vpnserver/</id>
     <published>2015-12-18T08:49:56.000Z</published>
-    <updated>2015-12-20T05:51:03.153Z</updated>
+    <updated>2015-12-20T06:32:47.385Z</updated>
     <content type="html"><![CDATA[<h3 id="u5B89_u88C5pptpd"><a href="#u5B89_u88C5pptpd" class="headerlink" title="安装pptpd"></a>安装pptpd</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install pptpd</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <h3 id="u4FEE_u6539/etc/ppp/chap-secrets_u6587_u4EF6"><a href="#u4FEE_u6539/etc/ppp/chap-secrets_u6587_u4EF6" class="headerlink" title="修改/etc/ppp/chap-secrets文件"></a>修改/etc/ppp/chap-secrets文件</h3><pre><code>四列分别是用户名、服务类型（与pptpd-options里name保持一致）、密码、IP限制（不做限制写 * 即可）。
@@ -70,7 +71,7 @@ iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
     
       <category term="VPN" scheme="http://hf136.github.io/tags/VPN/"/>
     
-      <category term="Linux" scheme="http://hf136.github.io/categories/Linux/"/>
+      <category term="笔记" scheme="http://hf136.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   

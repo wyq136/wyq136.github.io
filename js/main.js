@@ -114,4 +114,6 @@ require([], function (){
 	$("#container .left-col .overlay").css({"background-color": colorList[id],"opacity": 1});
 	//移动端
 	$("#container #mobile-nav .overlay").css({"background-color": colorList[id],"opacity": .7});
+	
+	//window.location.pathname = "/about"
 });

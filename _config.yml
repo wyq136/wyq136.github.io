@@ -3,10 +3,10 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: hf's blog
+title: wyq's blog
 subtitle: 仰望星空，寻找属于自己的路
 description:
-author: hf
+author: wyq
 language: zh-CH
 timezone: #时区
 
@@ -82,4 +82,4 @@ theme: yelee
 deploy:
   type: git
   repo: https://github.com/hf136/hf136.github.io.git
-  
+  branch: master

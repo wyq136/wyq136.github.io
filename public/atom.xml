@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://hf136.github.io/"/>
-  <updated>2018-09-15T11:04:06.671Z</updated>
+  <updated>2018-09-15T11:24:45.153Z</updated>
   <id>http://hf136.github.io/</id>
   
   <author>
@@ -20,8 +20,8 @@
     <title>Hello World</title>
     <link href="http://hf136.github.io/2018/09/15/hello-world/"/>
     <id>http://hf136.github.io/2018/09/15/hello-world/</id>
-    <published>2018-09-15T11:04:06.669Z</published>
-    <updated>2018-09-15T11:04:06.671Z</updated>
+    <published>2018-09-15T11:24:45.152Z</published>
+    <updated>2018-09-15T11:24:45.153Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><a id="more"></a><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
     
@@ -39,7 +39,7 @@
     <link href="http://hf136.github.io/2015/12/18/vpnserver/"/>
     <id>http://hf136.github.io/2015/12/18/vpnserver/</id>
     <published>2015-12-18T08:49:56.000Z</published>
-    <updated>2018-09-15T11:04:06.671Z</updated>
+    <updated>2018-09-15T11:24:45.154Z</updated>
     
     <content type="html"><![CDATA[<h3 id="安装pptpd"><a href="#安装pptpd" class="headerlink" title="安装pptpd"></a>安装pptpd</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install pptpd</span><br></pre></td></tr></table></figure><a id="more"></a><h3 id="修改-etc-ppp-chap-secrets文件"><a href="#修改-etc-ppp-chap-secrets文件" class="headerlink" title="修改/etc/ppp/chap-secrets文件"></a>修改/etc/ppp/chap-secrets文件</h3><pre><code>四列分别是用户名、服务类型（与pptpd-options里name保持一致）、密码、IP限制（不做限制写 * 即可）。例如: user pptpd passwd *</code></pre><h3 id="修改-etc-ppp-pptpd-options文件"><a href="#修改-etc-ppp-pptpd-options文件" class="headerlink" title="修改/etc/ppp/pptpd-options文件"></a>修改/etc/ppp/pptpd-options文件</h3><pre><code>取消注释 ms-dns ，ms-dns 8.8.8.8</code></pre><h3 id="修改-etc-pptpd-conf文件"><a href="#修改-etc-pptpd-conf文件" class="headerlink" title="修改/etc/pptpd.conf文件"></a>修改/etc/pptpd.conf文件</h3><pre><code>设置VPN连通后服务器及客户端的client的ip。localip 192.168.10.1remoteip 192.168.10.100-120</code></pre><h3 id="修改-etc-sysctl-conf"><a href="#修改-etc-sysctl-conf" class="headerlink" title="修改/etc/sysctl.conf"></a>修改/etc/sysctl.conf</h3><pre><code>取消注释 net.ipv4.ip_forward=1执行sudo /sbin/sysctl -p重新加载配置然后使新配置生效：/etc/init.d/procps restart</code></pre><h3 id="设置iptables"><a href="#设置iptables" class="headerlink" title="设置iptables"></a>设置iptables</h3><pre><code>sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE</code></pre><h3 id="修改-etc-rc-local文件"><a href="#修改-etc-rc-local文件" class="headerlink" title="修改/etc/rc.local文件"></a>修改/etc/rc.local文件</h3><pre><code>在exit 0这行上面加上iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE</code></pre><h3 id="最后重启pptpd服务"><a href="#最后重启pptpd服务" class="headerlink" title="最后重启pptpd服务"></a>最后重启pptpd服务</h3><pre><code>sudo /etc/init.d/pptpd restart</code></pre>]]></content>
     

@@ -108,7 +108,7 @@ require([], function (){
 	}
 
 	//随机颜色
-	var colorList = ["#6da336", "#66CC66", "#99CC99", "#76becc", "#c99979", "#4d4d4d"];
+	var colorList = ["#76becc", "#76becc", "#c99979", "#4d4d4d"];
 	var id = Math.ceil(Math.random()*(colorList.length-1));
 	//PC
 	$("#container .left-col .overlay").css({"background-color": colorList[id],"opacity": 1});

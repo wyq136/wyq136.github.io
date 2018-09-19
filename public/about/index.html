@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="wyq&#39;s blog">
 <meta property="og:description" content="无聊的时候搭了这个blog ( ⊙ o ⊙ )！希望偶尔可以写写博客记录整理一些学习过的内容">
 <meta property="og:locale" content="zh-CH">
-<meta property="og:updated_time" content="2018-09-15T11:04:06.672Z">
+<meta property="og:updated_time" content="2018-09-15T11:24:45.157Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="about">
 <meta name="twitter:description" content="无聊的时候搭了这个blog ( ⊙ o ⊙ )！希望偶尔可以写写博客记录整理一些学习过的内容">
@@ -309,7 +309,7 @@
         &copy; 2018 wyq
       </div>
         <div class="footer-right">
-          <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的静态博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减双栏 Hexo 博客主题">Yelee</a> by MOxFIVE
+          <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的静态博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减双栏 Hexo 博客主题">Yelee</a>
         </div>
     </div>
     <div class="visit">
@@ -332,12 +332,23 @@
 <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
 <script src="/js/main.js"></script>
 
-<script>
-  var backgroundnum = 2;
-  var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
-
-  $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
-</script>
+  <style>
+    body {
+      background: lightgray;
+    }
+    #container .left-col {
+      background: white;
+    }
+    .article-inner {
+      background: white;
+    }
+    .post-nav-button {
+      background: #ececec;
+    }
+    #header .header-nav .social #GitHub {
+      background-color: #bfd3ec;
+    }
+  </style>
 
 
 

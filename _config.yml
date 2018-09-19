@@ -75,6 +75,11 @@ feed:
 
 rss: /atom.xml
 
+search:
+  path: search.xml
+  field: post
+  content: true
+
 theme: yelee
 
 # Deployment

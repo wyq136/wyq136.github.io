@@ -1,1 +1,1 @@
-# MyBlog
+# My Hexo Blog

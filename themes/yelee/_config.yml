@@ -10,6 +10,7 @@ menu:
   主页: /
   所有文章: /archives/
   #随笔: /tags/随笔
+  #类别: /categories/
   #标签云: /tags/
   关于我: /about/
 
@@ -241,7 +242,7 @@ fancybox: true
 
 # Display Math(LaTeX, MathML...) | 数学公式支持
 ## https://www.mathjax.org/
-mathjax: false
+mathjax: true
 
 # Socail Share | 是否开启分享
 share: 

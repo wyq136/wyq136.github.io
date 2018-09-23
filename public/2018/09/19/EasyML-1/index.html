@@ -27,7 +27,7 @@
 <meta property="og:image" content="http://hf136.github.io/resource/images/lr-2.png">
 <meta property="og:image" content="http://hf136.github.io/resource/images/lr-loss.png">
 <meta property="og:image" content="http://hf136.github.io/resource/images/lr-loss2.png">
-<meta property="og:updated_time" content="2018-09-22T15:42:31.935Z">
+<meta property="og:updated_time" content="2018-09-23T02:40:32.963Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习入门——什么是机器学习？">
 <meta name="twitter:description" content="有人说，现在的人工智能就是 $ y=ax+b $ ，虽然可能是开玩笑，但其实我觉得这句话很有的道理。">
@@ -306,23 +306,28 @@
 <h3 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h3><p>在这个问题中，我们可以使用平均平方误差来当做我们的损失函数，即：我们有 m 条训练数据，我们可以通过公式 $ loss = \frac {1} {m} \sum_{i=0}^m (y_i - y_i^\prime)^2 $ 来计算模型预测的值 $y^\prime$ 和真实值 $y$ 之间的平方误差。</p>
 <p>当模型预测的准确率是100%的时候，损失函数的值等于0，也就是说损失函数的结果越小，模型的效果越好。有了这个损失函数，我们就可以知道哪些 a 和 b 的值是比较好的，这样机器就可以知道哪些 a 和 b 的值是比较好的了。</p>
 <p>我们很容易想到：我们可以将所有可能的 a 和 b 的值遍历一遍，通过已有的数据去计算损失函数的值，取损失函数最小时所对应的 a 和 b 的值，那问题不就解决了吗？</p>
-<p>是的，但是这种方法太笨了，a 和 b 的值是有无限多可能的，而且计算量太大，所有我们还需要一种有效的学习方法：<strong>梯度下降</strong>。</p>
+<p>是的，但是这种方法太笨了，a 和 b 的值是有无限多可能的，而且计算量太大，所以我们还需要一种有效的学习方法：<strong>梯度下降</strong>。</p>
 <h3 id="梯度下降"><a href="#梯度下降" class="headerlink" title="梯度下降"></a>梯度下降</h3><p>什么是梯度下降（Gradient Descent）呢？</p>
 <p>在这个问题中，我们的损失函数实际上是一个二次函数，我们可以简单的理解为 a 或 b 和对应损失函数的值之间的关系如下图所示：</p>
 <p><img src="/resource/images/lr-loss.png" alt="loss"></p>
-<p>在上图中，我们可以知道当 a=2.3 时, 损失函数 loss 的值最小，那如果一开始我们随机得到的 a 的初始值是1.7或者3.6的话，怎么样才能快速的得到一个接近最优值2.3的值呢？</p>
+<p>在上图中，横坐标表示 a 的取值，纵坐标表示 loss 的值。我们可以知道当 a=2.3 时, 损失函数 loss 的值最小，那如果一开始我们随机得到的 a 的初始值是1.7或者3.6的话，怎么样才能快速的得到一个接近最优值2.3的值呢？</p>
 <blockquote>
 <p>答案是：导数（只有一个变量是导数，在多变量中为偏导数）。</p>
 <p>我们可以发现：当 a &gt; 2.3 时，比如说 a = 3.6，此时 a 的导数（切线的斜率）大于0；当 a &lt; 2.3 时，比如说 a = 1.7，此时 a 的导数小于0；而当 a = 2.3 时，a 的导数等于0。</p>
 </blockquote>
-<p>假设一开我们随机得到: a = 3.6，那么 a 需要向左移动，即计算 a 的导数 $ \nabla_a    $，可以得到新的 a 值 $a_{new}$ 为：$$ a_{new}=a - \nabla_a $$</p>
-<p><img src="/resource/images/lr-loss2.png" alt="loss"></p>
-<p>如上图所示，经过多次迭代，我们就可以快速得到一个无限接近于最优值的 $ a_{best}$ ，同理，b 的最优值 $b_{best}$ 也可以通过这种方式得到。$$ b_{new}=b - \nabla_b $$</p>
+<p>假设一开我们随机得到: a = 3.6，那么 a 需要向左移动，即计算 a 的导数 $ \nabla_a    $，就可以知道 a 需要调整移动的方向。我们可以通过以下公式得到新的 a 值 $a_{new}$ 为：$$ a_{new}=a_{old} - \alpha\nabla_a $$</p>
+<p>其中 $\alpha$ 是一个大于 0 的系数，通常称作<strong>学习率</strong>，控制着 a 每一次调整的步长。如下图所示，a 每次的调整如果过大的话，很容易调整过头；如果每次的调整过小的话，学习的速度就会非常慢。所以我们需要一个学习率去调整控制学习的速度。<br><br><img src="/resource/images/lr-loss2.png" alt="loss"></p>
+<p>如上图所示，经过多次迭代，我们就可以快速得到一个无限接近于最优值的 $ a_{best}$ ，同理，b 的最优值 $b_{best}$ 也可以通过这种方式得到。$$ b_{new}=b_{old} - \alpha\nabla_b $$</p>
 <p>梯度下降中，<strong>梯度</strong>指的是 a 和 b 的导数（实际上是偏导数）组成的向量：$(\nabla_a, \nabla_b)$ ；<strong>下降</strong>是指损失函数值 loss 不断减小的过程。</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>在这里，机器学习就是:</p>
 <blockquote>
 <p>在已有的数据（训练数据）的基础上，先建立一个数学模型 $y=ax+b$，再定义一个损失函数 $loss$，最后通过梯度下降的方式不断的调整模型参数 a 和 b，使损失函数的值不断变小，得到最优的参数 $ a_{best}$ 和 $ b_{best}$ 的过程。</p>
 </blockquote>
+<p>推广到一般的情况（考虑多种影响房价的因素），这里的 $x$ 变成了一组值 $x_1, x_2, … , x_n$, a也相应的变成了一组值，为了更加形象一些，一般我们使用 weight（权重）的首字母 $w$ 来代替 a ，即：$w_1, w_2, … , w_n$，这里的线性回归模型就变成了：$$y=w_1 x_1 + w_2 x_2 + … w_n x_n + b$$</p>
+<p>同样，我们可以通过计算每一个 $w_i$ 的偏导数，使用梯度下降的学习方法来不断迭代更新得到最优的 $w$ 值。我们可以将上面的公式简写成向量内积的形式： $ y=\vec{w} \cdot \vec{x} + b $</p>
+<h2 id="再谈谈深度学习"><a href="#再谈谈深度学习" class="headerlink" title="再谈谈深度学习"></a>再谈谈深度学习</h2><p>深度学习可谓是人工智能领域中最“智能”的分支，而深度学习中无论多么复杂的模型都离不开 $ y=\vec{w} \cdot \vec{x} + b $ ，因为它是“神经元”的重要组成部分。</p>
+<p>神经元一般由 $ y=\vec{w} \cdot \vec{x} + b $ （线性部分）加上一个激活函数（非线性部分）组成。</p>
+<p>在深度学习中，无论多么复杂的模型几乎都离不开<strong>神经元</strong>，神经元以不同的“空间结构”组合在一起，构成了各种各样的复杂模型。</p>
 
       
     </div>
@@ -334,7 +339,7 @@
         <p><span>本文标题:</span><a href="/2018/09/19/EasyML-1/">机器学习入门——什么是机器学习？</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">wyq</a></p>
         <p><span>发布时间:</span>2018-09-19, 23:09:46</p>
-        <p><span>最后更新:</span>2018-09-22, 23:42:31</p>
+        <p><span>最后更新:</span>2018-09-23, 10:40:32</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/09/19/EasyML-1/" title="机器学习入门——什么是机器学习？">http://hf136.github.io/2018/09/19/EasyML-1/</a>
             <span class="copy-path" data-clipboard-text="原文: http://hf136.github.io/2018/09/19/EasyML-1/　　作者: wyq" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -353,7 +358,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是机器学习？"><span class="toc-number">1.</span> <span class="toc-text">什么是机器学习？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何自动学习得到a和b？"><span class="toc-number">2.</span> <span class="toc-text">如何自动学习得到a和b？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#损失函数"><span class="toc-number">2.1.</span> <span class="toc-text">损失函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#梯度下降"><span class="toc-number">2.2.</span> <span class="toc-text">梯度下降</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是机器学习？"><span class="toc-number">1.</span> <span class="toc-text">什么是机器学习？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何自动学习得到a和b？"><span class="toc-number">2.</span> <span class="toc-text">如何自动学习得到a和b？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#损失函数"><span class="toc-number">2.1.</span> <span class="toc-text">损失函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#梯度下降"><span class="toc-number">2.2.</span> <span class="toc-text">梯度下降</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#再谈谈深度学习"><span class="toc-number">4.</span> <span class="toc-text">再谈谈深度学习</span></a></li></ol>
         
     </div>
     <style>

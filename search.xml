@@ -3,6 +3,29 @@
   
     
     <entry>
+      <title>函数的导数</title>
+      <link href="/2018/09/20/math/"/>
+      <url>/2018/09/20/math/</url>
+      
+        <content type="html"><![CDATA[<h2 id="常见基本函数导数"><a href="#常见基本函数导数" class="headerlink" title="常见基本函数导数"></a>常见基本函数导数</h2><table><thead><tr><th>导数名</th><th>原函数</th><th>导函数</th></tr></thead><tbody><tr><td>常函数（常数）</td><td>$y=C$ (C为常数)</td><td>$y^\prime=0$</td></tr><tr><td>幂函数</td><td>$y=x^n$</td><td>$y^\prime=nx^{n-1}$</td></tr><tr><td>指数函数</td><td>$y=a^x$</td><td>$y^\prime=a^x\ln x$</td></tr><tr><td></td><td>$y=e^x$</td><td>$y^\prime=e^x$</td></tr><tr><td>对数函数</td><td>$y=\log_a x$</td><td>$y^\prime=\frac{1}{x\ln a}$</td></tr><tr><td></td><td>$y=\ln x$</td><td>$y^\prime=\frac{1}{x}$</td></tr><tr><td>正弦函数</td><td>$y=\sin x$</td><td>$y^\prime=\cos x$</td></tr><tr><td>余弦函数</td><td>$y=\cos x$</td><td>$y^\prime=-\sin x$</td></tr></tbody></table><h2 id="复合函数求导"><a href="#复合函数求导" class="headerlink" title="复合函数求导"></a>复合函数求导</h2><p>原函数：$y^\prime=f(g(x))$， 其中 $y=f(u)$， $u=g(x)$</p><p>使用链式法则求导：$y^\prime = f^\prime(u)u^\prime(x) = f^\prime(g(x))g^\prime(x)$</p><h2 id="导数的四则运算"><a href="#导数的四则运算" class="headerlink" title="导数的四则运算"></a>导数的四则运算</h2><p>$$(u \pm v)^\prime = u^\prime \pm v^\prime$$</p><p>$$(uv)^\prime = u^\prime v + u v^\prime$$</p><p>$$(\frac{u}{v})^\prime = \frac{u^\prime v - u v^\prime}{v^2}$$</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Math </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Math </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>机器学习入门——什么是机器学习？</title>
       <link href="/2018/09/19/EasyML-1/"/>
       <url>/2018/09/19/EasyML-1/</url>

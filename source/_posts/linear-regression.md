@@ -36,3 +36,27 @@ $$b := b - \alpha \frac{1}{m} \sum_{i=1}^{m}{(y^\prime_i - y_i)}$$
 其中， $\alpha$ 为学习速率， $\alpha$ 后面的项为偏导数。
 
 ## 代码实现
+
+[完整代码](https://github.com/hf136/models/tree/master/LinearRegression)
+
+``` python
+# 定义参数 w 和 b
+w, b = np.random.rand(2)
+
+learning_rate = 1e-4
+for epoch in range(1000):
+    # 定义模型，前向计算
+    pred_y = w * x + b
+
+    # loss
+    loss = 0.5 * np.square(pred_y - y).sum() / len(y)
+    print('epoch {}, loss {}'.format(epoch, loss))
+
+    # 计算梯度（求导）
+    grad_w = ((pred_y - y) * x).sum() / len(y)
+    grad_b = (pred_y - y).sum() / len(y)
+
+    # 更新参数
+    w -= learning_rate * grad_w
+    b -= learning_rate * grad_b
+```

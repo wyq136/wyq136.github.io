@@ -11,7 +11,7 @@ tags:
 
 $$
 \begin{aligned}
-h_\theta(x) =& {g(\bf{\theta{^T} x}}) \\\\
+h_\theta(x) =& g({\bf{\theta{^T} x}}) \\\\
 g(z) =& \frac{1}{1 + e^{-z}}
 \end{aligned}
 $$
@@ -53,4 +53,26 @@ $$\theta_j := \theta_j - \alpha \frac{1}{m} \sum_{i=1}^{m}{(h_\theta(x^i) - y^i)
 
 ## 具体求导过程
 
+sigmoid函数求导：
+$$
+\begin{aligned}
+g^\prime(z) =& \frac{d}{dz} \frac{1}{1 + e^{-z}} \\\\
+=& \frac{1}{(1 + e^{-z})^2} e^{-z} \\\\
+=& \frac{1}{1 + e^{-z}} (1 - \frac{1}{1 + e^{-z}}) \\\\
+=& g(z)(1-g(z)) \\\\
+\end{aligned}
+$$
+
+对损失函数求 $\theta$ 的导数：
+$$
+\begin{aligned}
+J^\prime(\theta_j) =& -\frac{1}{m} \sum_{i=1}^{m} \frac{\partial}{\partial\theta_j} [y^i \log{h_\theta(x^i)} + (1- y^i) \log{(1 - h_\theta(x^i))}] \\\\
+=& -\frac{1}{m} \sum_{i=1}^{m} [y \frac{1}{h_\theta(x^i)} - (1-y)\frac{1}{1-h_\theta(x^i)}] \frac{\partial}{\partial\theta_j} g({\bf{\theta{^T} x}}) \\\\
+=& -\frac{1}{m} \sum_{i=1}^{m} [y \frac{1}{g({\bf{\theta{^T} x}})} - (1-y)\frac{1}{1-g({\bf{\theta{^T} x}})}] g({\bf{\theta{^T} x}})(1-g({\bf{\theta{^T} x}})) \frac{\partial}{\partial\theta_j} {\bf{\theta{^T} x}} \\\\
+=& -\frac{1}{m} \sum_{i=1}^{m} (y(1-g({\bf{\theta{^T} x}})) - (1-y)g({\bf{\theta{^T} x}})) x_j \\\\
+=& \frac{1}{m} \sum_{i=1}^{m} (h_\theta(x^i) - y) x_j
+\end{aligned}
+$$
+
+对于更复杂的模型直接求导比较困难，目前比较流行的深度学习框架一般使用链式求导法则自动求导（应该说是自动微分）。
 ## 代码实现

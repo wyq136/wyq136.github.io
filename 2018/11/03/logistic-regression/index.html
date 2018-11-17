@@ -22,7 +22,8 @@
 <meta property="og:site_name" content="wyq&#39;s blog">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://hf136.github.io/resource/images/sigmoid.png">
-<meta property="og:updated_time" content="2018-11-15T16:32:18.081Z">
+<meta property="og:image" content="https://github.com/hf136/models/raw/master/docs/images/logis-reg.png">
+<meta property="og:updated_time" content="2018-11-17T13:11:37.184Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="逻辑回归（Logistic Regression）">
 <meta name="twitter:image" content="http://hf136.github.io/resource/images/sigmoid.png">
@@ -283,11 +284,12 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h2><p>$$<br>\begin{aligned}<br>h_\theta(x) =&amp; g({\bf{\theta{^T} x}}) \\<br>g(z) =&amp; \frac{1}{1 + e^{-z}}<br>\end{aligned}<br>$$</p>
-<p>$g(z)$ 称为sigmoid函数，函数图像为：</p>
-<p><img src="/resource/images/sigmoid.png" alt="sigmoid image"></p>
-<p>逻辑回归实际上是在线性回归的基础上在加上一个sigmoid函数（非线性变换），合并起来就是：</p>
+        <h2 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h2><p>逻辑回归实际上是在线性回归的基础上在加上一个sigmoid函数（非线性变换）：</p>
 <p>$$<br>h_\theta(x) = \frac{1}{1 + e^{-\bf{\theta{^T}x}}}<br>$$</p>
+<p>可分开写成：</p>
+<p>$$<br>\begin{aligned}<br>h_\theta(x) =&amp; g({\bf{\theta{^T} x}}) \\<br>g(z) =&amp; \frac{1}{1 + e^{-z}}<br>\end{aligned}<br>$$</p>
+<p>其中 $g(z)$ 称为sigmoid函数，函数图像为：</p>
+<p><img src="/resource/images/sigmoid.png" alt="sigmoid image"></p>
 <h2 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h2><p>$$<br>\begin{aligned}<br>loss =  J(\theta) = &amp; \frac{1}{m} \sum_{i=1}^{m}Cost(h_\theta(x^i) - y^i) \\<br>= &amp; -  \frac{1}{m} [\sum_{i=1}^{m} y^i \log{h_\theta(x^i)} + (1- y^i) \log{(1 - h_\theta(x^i))}]<br>\end{aligned}<br>$$</p>
 <p>逻辑回归输出的值在 0-1 之间，使用log损失，当标签 $y^i=1$ 时，预测结果 $h_\theta(x^i)$ 也为 1 时损失为0，预测结果与 1 相差越多，损失越大。当标签 $y^i=0$ 时同理。</p>
 <h2 id="优化目标"><a href="#优化目标" class="headerlink" title="优化目标"></a>优化目标</h2><p>求使得损失函数最小的参数 $\bf{\theta}$ 。</p>
@@ -298,7 +300,11 @@
 <h2 id="具体求导过程"><a href="#具体求导过程" class="headerlink" title="具体求导过程"></a>具体求导过程</h2><p>sigmoid函数求导：<br>$$<br>\begin{aligned}<br>g^\prime(z) =&amp; \frac{d}{dz} \frac{1}{1 + e^{-z}} \\<br>=&amp; \frac{1}{(1 + e^{-z})^2} e^{-z} \\<br>=&amp; \frac{1}{1 + e^{-z}} (1 - \frac{1}{1 + e^{-z}}) \\<br>=&amp; g(z)(1-g(z)) \\<br>\end{aligned}<br>$$</p>
 <p>对损失函数求 $\theta$ 的导数：<br>$$<br>\begin{aligned}<br>J^\prime(\theta_j) =&amp; -\frac{1}{m} \sum_{i=1}^{m} \frac{\partial}{\partial\theta_j} [y^i \log{h_\theta(x^i)} + (1- y^i) \log{(1 - h_\theta(x^i))}] \\<br>=&amp; -\frac{1}{m} \sum_{i=1}^{m} [y \frac{1}{h_\theta(x^i)} - (1-y)\frac{1}{1-h_\theta(x^i)}] \frac{\partial}{\partial\theta_j} g({\bf{\theta{^T} x}}) \\<br>=&amp; -\frac{1}{m} \sum_{i=1}^{m} [y \frac{1}{g({\bf{\theta{^T} x}})} - (1-y)\frac{1}{1-g({\bf{\theta{^T} x}})}] g({\bf{\theta{^T} x}})(1-g({\bf{\theta{^T} x}})) \frac{\partial}{\partial\theta_j} {\bf{\theta{^T} x}} \\<br>=&amp; -\frac{1}{m} \sum_{i=1}^{m} (y(1-g({\bf{\theta{^T} x}})) - (1-y)g({\bf{\theta{^T} x}})) x_j \\<br>=&amp; \frac{1}{m} \sum_{i=1}^{m} (h_\theta(x^i) - y) x_j<br>\end{aligned}<br>$$</p>
 <p>对于更复杂的模型直接求导比较困难，目前比较流行的深度学习框架一般使用链式求导法则自动求导（应该说是自动微分）。</p>
-<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><p><a href="https://github.com/hf136/models/tree/master/LogisticRegression" target="_blank" rel="noopener">完整代码</a>放在了GitHub上，下面是核心的代码片段。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 定义参数 w 和 b</span></span><br><span class="line">theta = np.random.rand(<span class="number">2</span>)</span><br><span class="line">bias = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">learning_rate = <span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> epoch <span class="keyword">in</span> range(<span class="number">1000</span>):</span><br><span class="line">    <span class="comment"># 定义模型，前向计算</span></span><br><span class="line">    z = X.dot(theta) + bias</span><br><span class="line">    pred_y = <span class="number">1</span> / (<span class="number">1</span> + np.exp(-z))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># loss</span></span><br><span class="line">    loss = - (y * np.log(pred_y) + (<span class="number">1</span> - y) * np.log(<span class="number">1</span> - pred_y)).sum() / y.size</span><br><span class="line">    print(<span class="string">'epoch &#123;&#125;, loss &#123;&#125;'</span>.format(epoch, loss))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 计算梯度（求导）</span></span><br><span class="line">    grad_theta = (pred_y - y).T.dot(X) / y.size</span><br><span class="line">    grad_bias = (pred_y - y).sum() / y.size</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 更新参数</span></span><br><span class="line">    theta -= learning_rate * grad_theta</span><br><span class="line">    bias -= learning_rate * grad_bias</span><br></pre></td></tr></table></figure>
+<p>预测结果：</p>
+<p><img src="https://github.com/hf136/models/raw/master/docs/images/logis-reg.png" alt="lr res"></p>
+
       
     </div>
     
@@ -309,7 +315,7 @@
         <p><span>本文标题:</span><a href="/2018/11/03/logistic-regression/">逻辑回归（Logistic Regression）</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">wyq</a></p>
         <p><span>发布时间:</span>2018-11-03, 21:06:26</p>
-        <p><span>最后更新:</span>2018-11-16, 00:32:18</p>
+        <p><span>最后更新:</span>2018-11-17, 21:11:37</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/11/03/logistic-regression/" title="逻辑回归（Logistic Regression）">http://hf136.github.io/2018/11/03/logistic-regression/</a>
             <span class="copy-path" data-clipboard-text="原文: http://hf136.github.io/2018/11/03/logistic-regression/　　作者: wyq" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

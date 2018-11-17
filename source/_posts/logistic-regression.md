@@ -9,6 +9,14 @@ tags:
 
 ## 模型
 
+逻辑回归实际上是在线性回归的基础上在加上一个sigmoid函数（非线性变换）：
+
+$$
+h_\theta(x) = \frac{1}{1 + e^{-\bf{\theta{^T}x}}}
+$$
+
+可分开写成：
+
 $$
 \begin{aligned}
 h_\theta(x) =& g({\bf{\theta{^T} x}}) \\\\
@@ -16,15 +24,9 @@ g(z) =& \frac{1}{1 + e^{-z}}
 \end{aligned}
 $$
 
-$g(z)$ 称为sigmoid函数，函数图像为：
+其中 $g(z)$ 称为sigmoid函数，函数图像为：
 
 ![sigmoid image](/resource/images/sigmoid.png)
-
-逻辑回归实际上是在线性回归的基础上在加上一个sigmoid函数（非线性变换），合并起来就是：
-
-$$
-h_\theta(x) = \frac{1}{1 + e^{-\bf{\theta{^T}x}}}
-$$
 
 ## 损失函数
 
@@ -76,3 +78,33 @@ $$
 
 对于更复杂的模型直接求导比较困难，目前比较流行的深度学习框架一般使用链式求导法则自动求导（应该说是自动微分）。
 ## 代码实现
+
+[完整代码](https://github.com/hf136/models/tree/master/LogisticRegression)放在了GitHub上，下面是核心的代码片段。
+
+``` python
+# 定义参数 w 和 b
+theta = np.random.rand(2)
+bias = 0
+
+learning_rate = 1
+for epoch in range(1000):
+    # 定义模型，前向计算
+    z = X.dot(theta) + bias
+    pred_y = 1 / (1 + np.exp(-z))
+
+    # loss
+    loss = - (y * np.log(pred_y) + (1 - y) * np.log(1 - pred_y)).sum() / y.size
+    print('epoch {}, loss {}'.format(epoch, loss))
+
+    # 计算梯度（求导）
+    grad_theta = (pred_y - y).T.dot(X) / y.size
+    grad_bias = (pred_y - y).sum() / y.size
+
+    # 更新参数
+    theta -= learning_rate * grad_theta
+    bias -= learning_rate * grad_bias
+```
+
+预测结果：
+
+![lr res](https://github.com/hf136/models/raw/master/docs/images/logis-reg.png)

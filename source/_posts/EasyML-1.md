@@ -1,7 +1,7 @@
 title: 机器学习入门——什么是机器学习？
 date: 2018-09-19 23:09:46
 description: "有人说，现在的人工智能就是 $ y=ax+b $ ，虽然可能是开玩笑，但其实我觉得这句话很有道理。"
-top: true
+<!-- top: true -->
 categories: Machine Learning
 tags:
   - Machine Learning

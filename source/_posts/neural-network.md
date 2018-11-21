@@ -26,7 +26,7 @@ tags:
 
 ### 前向计算
 
-设输入层、隐藏层和输出层的单元个数分别为 n，l， k，则3层的神经网络一共有 $n*l + l*k$ 个参数。
+设输入层、隐藏层和输出层的单元个数分别为 n，l， k，则3层的神经网络一共有 $n \cdot l + l \cdot k$ 个参数。
 
 $$
 \begin{aligned}
@@ -64,23 +64,18 @@ $$\min_{\Theta} J(\Theta)$$
 使用链式求导法则计算梯度，$\Theta_2$ 的梯度为：
 
 $$
-\frac{\partial J}{\partial\Theta_2} 
-= \frac{\partial J}{\partial \hat{y}}   \frac{\partial \hat{y}}{\partial z_3}   \frac{\partial z_3}{\partial \Theta_2}
-= (\frac{y}{\hat{y}} - \frac{1-y}{1-\hat{y}}) * (\hat{y}(1-\hat{y}))* a_2
-= (\hat{y} - y) * a_2
+\frac{\partial J}{\partial\Theta_2} = \frac{\partial J}{\partial \hat{y}} \frac{\partial \hat{y}}{\partial z_3}   \frac{\partial z_3}{\partial \Theta_2} = (-\frac{y}{\hat{y}} + \frac{1-y}{1-\hat{y}}) (\hat{y}(1-\hat{y})) \cdot a_2 = (\hat{y} - y) \cdot a_2
 $$
 
 $\Theta_1$ 的梯度为：
 
 $$
-\frac{\partial J}{\partial\Theta_1} 
-= \frac{\partial J}{\partial \hat{y}}   \frac{\partial \hat{y}}{\partial z_3}   \frac{\partial z_3}{\partial a_2}    \frac{\partial a_2}{\partial z_2}  \frac{\partial z_2}{\partial \Theta_1}
-= \{(\hat{y} - y) * \Theta_2 * [a_2(1-a_2)]\} * X
+∂\frac{\partial J}{\partial\Theta_1} = \frac{\partial J}{\partial \hat{y}}   \frac{\partial \hat{y}}{\partial z_3}   \frac{\partial z_3}{\partial a_2}    \frac{\partial a_2}{\partial z_2}  \frac{\partial z_2}{\partial \Theta_1} = \{(\hat{y} - y) \Theta_2 [a_2(1-a_2)]\} \cdot X
 $$
 
 这实际上也就是反向传播（Backpropagation）算法。
 
-注意：上面两个式子中的 $\Theta， a，z， \hat{y}$ 指的是矩阵或者向量中的某一个元素，上面这么写是为了简便，求导过程可写成矩阵运算的形式（更加简便），需注意进行相应的转置变换。
+注意：上面两个式子中的 $\Theta， a，z， \hat{y}$ 指的是矩阵或者向量中的元素分别求偏导数，上面这么写是为了简便。求导过程写成矩阵运算的形式也更方便，需注意进行相应的转置变换。
 
 ## 梯度下降
 

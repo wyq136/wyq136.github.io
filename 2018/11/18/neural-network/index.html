@@ -15,13 +15,20 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="wyq&#39;s blog">
-<meta property="og:url" content="http://hf136.github.io/tags/Machine-Learning/index.html">
+<meta name="description" content="模型一个三层的神经网络模型如下：">
+<meta name="keywords" content="Machine Learning,Deep Learning">
+<meta property="og:type" content="article">
+<meta property="og:title" content="人工神经网络（Artificial Neural Network）">
+<meta property="og:url" content="http://hf136.github.io/2018/11/18/neural-network/index.html">
 <meta property="og:site_name" content="wyq&#39;s blog">
+<meta property="og:description" content="模型一个三层的神经网络模型如下：">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://hf136.github.io/resource/images/nn.png">
+<meta property="og:updated_time" content="2018-11-21T13:40:08.535Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="wyq&#39;s blog">
+<meta name="twitter:title" content="人工神经网络（Artificial Neural Network）">
+<meta name="twitter:description" content="模型一个三层的神经网络模型如下：">
+<meta name="twitter:image" content="http://hf136.github.io/resource/images/nn.png">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -51,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Tag: Machine Learning | wyq&#39;s blog</title>
+<title>人工神经网络（Artificial Neural Network） | wyq&#39;s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -61,9 +68,9 @@
         fancybox: true,
         animate: false,
         isHome: false,
-        isPost: false,
+        isPost: true,
         isArchive: false,
-        isTag: true,
+        isTag: false,
         isCategory: false,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
         scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
@@ -239,196 +246,169 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-neural-network" class="article article-type-post" itemscope itemprop="blogPost">
   
+    <div class="article-meta">
+      <a href="/2018/11/18/neural-network/" class="article-date">
+      <time datetime="2018-11-18T02:30:33.000Z" itemprop="datePublished">2018-11-18</time>
+</a>
+
+
+    </div>
   
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      人工神经网络（Artificial Neural Network）
+    </h1>
+  
+
+      </header>
       
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2018/11/18/neural-network/" class="archive-article-date">
-      <time datetime="2018-11-18T02:30:33.000Z" itemprop="datePublished">11-18</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/18/neural-network/">人工神经网络（Artificial Neural Network）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
+    <div class="article-entry" itemprop="articleBody">
+      
           
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li></ul>
+        <h2 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h2><p>一个三层的神经网络模型如下：</p>
+<p><img src="/resource/images/nn.png" alt="nn model"></p>
+<a id="more"></a>
+<p>神经网络可分为输入层、隐藏层和输出层，输入层一般除了输入的特征数据之外，还会有一个偏差项（bias）。神经网络一般会包含一个或者多个隐藏层，隐藏层一般由多个神经元（Neural Unit）构成，上图中的有一个隐藏层，隐藏层中有4个神经元。输出层根据具体不同的任务可以由神经元或者普通的线性回归等构成。</p>
+<h3 id="神经元"><a href="#神经元" class="headerlink" title="神经元"></a>神经元</h3><p>神经元一般由一个线性回归和一个激活函数（非线性部分）构成，例如：逻辑回归可以作为神经网络中的一种神经元。</p>
+<p>常见的激活函数有：sigmoid函数、Relu、tanh等。</p>
+<h3 id="前向计算"><a href="#前向计算" class="headerlink" title="前向计算"></a>前向计算</h3><p>设输入层、隐藏层和输出层的单元个数分别为 n，l， k，则3层的神经网络一共有 $n \cdot l + l \cdot k$ 个参数。</p>
+<p>$$<br>\begin{aligned}<br>z_2 =&amp; \Theta_1 X \\<br>a_2 =&amp; g(z_2) \\<br>z_3 =&amp; \Theta_2 a_2 \\<br>a_3 =&amp; g(z_3) \\<br>\hat{y} =&amp; a_3 \\<br>\end{aligned}<br>$$</p>
+<p>其中，X 是输入的特征向量，$\hat{y}$ 是神经网络输出的结果，$\Theta_1$ 是一个 n <em> l 的参数矩阵（输入层为n，隐藏层为l），$\Theta_2$ 是隐藏层到输出层的参数矩阵，大小为 l </em> k，$g(z)$ 为激活函数，这里使用sigmoid函数作为激活函数。这里的 $a, z$ 都是向量，函数 $g(z)$ 也是指对向量中的每一个元素做非线性变换。</p>
+<h2 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h2><p>神经网络一般使用交叉熵，即使用和逻辑回归类似的损失函数，输出层的每一个输出单元是一个逻辑回归损失，并且求和。</p>
+<p>$$<br>\begin{aligned}<br>loss =  J(\theta) = &amp; \frac{1}{m} \sum_{i=1}^{m} \sum_{i=1}^{K} Cost(\hat{y}^i_k - y^i_k) \\<br>= &amp; -  \frac{1}{m} \sum_{i=1}^{m} \sum_{i=1}^{K} [y^i_k \log{\hat{y}^i_k} + (1- y^i_k) \log{(1 - \hat{y}^i_k)}]<br>\end{aligned}<br>$$</p>
+<p>其中，K 输出层输出单元个数， m 为训练样本数，$\hat{y}^i_k$ 为第i个样本的第k个输出单元的输出结果。</p>
+<h2 id="优化目标"><a href="#优化目标" class="headerlink" title="优化目标"></a>优化目标</h2><p>求使得损失函数最小的参数 ${\Theta}$ 。</p>
+<p>$$\min_{\Theta} J(\Theta)$$</p>
+<h2 id="计算梯度"><a href="#计算梯度" class="headerlink" title="计算梯度"></a>计算梯度</h2><p>使用链式求导法则计算梯度，$\Theta_2$ 的梯度为：</p>
+<p>$$<br>\frac{\partial J}{\partial\Theta_2} = \frac{\partial J}{\partial \hat{y}} \frac{\partial \hat{y}}{\partial z_3}   \frac{\partial z_3}{\partial \Theta_2} = (-\frac{y}{\hat{y}} + \frac{1-y}{1-\hat{y}}) (\hat{y}(1-\hat{y})) \cdot a_2 = (\hat{y} - y) \cdot a_2<br>$$</p>
+<p>$\Theta_1$ 的梯度为：</p>
+<p>$$<br>∂\frac{\partial J}{\partial\Theta_1} = \frac{\partial J}{\partial \hat{y}}   \frac{\partial \hat{y}}{\partial z_3}   \frac{\partial z_3}{\partial a_2}    \frac{\partial a_2}{\partial z_2}  \frac{\partial z_2}{\partial \Theta_1} = {(\hat{y} - y) \Theta_2 [a_2(1-a_2)]} \cdot X<br>$$</p>
+<p>这实际上也就是反向传播（Backpropagation）算法。</p>
+<p>注意：上面两个式子中的 $\Theta， a，z， \hat{y}$ 指的是矩阵或者向量中的元素分别求偏导数，上面这么写是为了简便。求导过程写成矩阵运算的形式也更方便，需注意进行相应的转置变换。</p>
+<h2 id="梯度下降"><a href="#梯度下降" class="headerlink" title="梯度下降"></a>梯度下降</h2><h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2>
+      
     </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+    
   </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2018/11/18/neural-network/">人工神经网络（Artificial Neural Network）</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">wyq</a></p>
+        <p><span>发布时间:</span>2018-11-18, 10:30:33</p>
+        <p><span>最后更新:</span>2018-11-21, 21:40:08</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2018/11/18/neural-network/" title="人工神经网络（Artificial Neural Network）">http://hf136.github.io/2018/11/18/neural-network/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://hf136.github.io/2018/11/18/neural-network/　　作者: wyq" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2018/11/17/regularization/">
+                    正则化（regularization）
+                </a>
+            </div>
+        
+    </nav>
+
+  
 </article>
-  
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#模型"><span class="toc-number">1.</span> <span class="toc-text">模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#神经元"><span class="toc-number">1.1.</span> <span class="toc-text">神经元</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#前向计算"><span class="toc-number">1.2.</span> <span class="toc-text">前向计算</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#损失函数"><span class="toc-number">2.</span> <span class="toc-text">损失函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#优化目标"><span class="toc-number">3.</span> <span class="toc-text">优化目标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#计算梯度"><span class="toc-number">4.</span> <span class="toc-text">计算梯度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#梯度下降"><span class="toc-number">5.</span> <span class="toc-text">梯度下降</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码实现"><span class="toc-number">6.</span> <span class="toc-text">代码实现</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
     
+<div class="share">
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2018/11/17/regularization/" class="archive-article-date">
-      <time datetime="2018-11-17T14:30:33.000Z" itemprop="datePublished">11-17</time>
-</a>
+
+    
+</div>
 
 
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/17/regularization/">正则化（regularization）</a>
-    </h1>
-  
 
-        <div class="article-info info-on-archive">
-          
 
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li></ul>
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2018/11/17/regularization/" title="下一篇: 正则化（regularization）">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
     </div>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2018/11/03/logistic-regression/" class="archive-article-date">
-      <time datetime="2018-11-03T13:06:26.000Z" itemprop="datePublished">11-03</time>
-</a>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/11/18/neural-network/">人工神经网络（Artificial Neural Network）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/17/regularization/">正则化（regularization）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/03/logistic-regression/">逻辑回归（Logistic Regression）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/27/linear-regression/">线性回归</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/20/math/">函数的导数</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/19/EasyML-1/">机器学习入门——什么是机器学习？</a></li></ul>
 
 
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/03/logistic-regression/">逻辑回归（Logistic Regression）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2018/09/27/linear-regression/" class="archive-article-date">
-      <time datetime="2018-09-27T14:30:33.000Z" itemprop="datePublished">09-27</time>
-</a>
 
 
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/27/linear-regression/">线性回归</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Machine-Learning/">Machine Learning</a>
-    </div>
-
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2018/09/19/EasyML-1/" class="archive-article-date">
-      <time datetime="2018-09-19T15:09:46.000Z" itemprop="datePublished">09-19</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/19/EasyML-1/">机器学习入门——什么是机器学习？</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Machine-Learning/">Machine Learning</a>
-    </div>
-
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">

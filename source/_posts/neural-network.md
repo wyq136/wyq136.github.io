@@ -75,8 +75,58 @@ $$
 
 这实际上也就是反向传播（Backpropagation）算法。
 
-注意：上面两个式子中的 $\Theta， a，z， \hat{y}$ 指的是矩阵或者向量中的元素分别求偏导数，上面这么写是为了简便。求导过程写成矩阵运算的形式也更方便，需注意进行相应的转置变换。
+**注意**：上面两个式子中的 $\Theta， a，z， \hat{y}$ 指的是矩阵或者向量中的元素分别求偏导数，上面这么写是为了简便。求导过程写成矩阵运算的形式也更方便，需注意进行相应的转置变换。
 
-## 梯度下降
+随着模型结构越来越复杂，每次都去计算梯度比较复杂，现在已经有很多深度学习框架可以进行**自动微分**计算梯度。下面我们还是使用链式求导法则来自己计算一下神经网络的梯度。
 
 ## 代码实现
+[完整代码](https://github.com/hf136/models/blob/master/ArtificialNeuralNetwork/raw_neural_network.py)
+
+``` python
+input_size = 2
+hidden_size = 5
+output_size = 1
+
+# 生成参数theta
+theta1 = np.random.rand(input_size + 1, hidden_size)
+theta2 = np.random.rand(hidden_size, output_size)
+
+# 添加偏差项
+ones = np.ones((X.shape[0], 1))
+X = np.concatenate((X, ones), axis=1)
+
+learning_rate = 1e-1
+for epoch in range(10001):
+    # 定义模型，前向计算（这里的隐藏层没有添加偏差项，也可以在每层隐藏层都加上偏差项）
+    z2 = X.dot(theta1)
+    a2 = 1 / (1 + np.exp(-z2))
+    z3 = a2.dot(theta2)
+    pred_y = 1 / (1 + np.exp(-z3))
+
+    # loss
+    loss = 0.5 * np.square(pred_y - y).sum() / y.size
+    print('epoch {}, loss {}'.format(epoch, loss))
+
+    # 输出训练时的准确率
+    if epoch % 100 == 0:
+        pred_label = pred_y >= 0.5
+        true_label = y >= 0.5
+        diff = pred_label == true_label
+        accuracy = diff.mean()
+        print('accuracy {}'.format(accuracy))
+
+    # 使用链式求导计算梯度（和反向传播是一致的）
+    grad_z3 = pred_y - y
+    grad_theta2 = grad_z3.T.dot(a2).T
+    grad_a2 = grad_z3.dot(theta2.T)
+    grad_z2 = grad_a2 * a2 * (1 - a2)
+    grad_theta1 = X.T.dot(grad_z2)
+
+    # 更新参数
+    theta2 -= learning_rate * grad_theta2
+    theta1 -= learning_rate * grad_theta1
+```
+
+预测结果：
+
+![lr res](https://github.com/hf136/models/raw/master/docs/images/ann_res.png)

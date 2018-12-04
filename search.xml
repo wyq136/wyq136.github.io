@@ -3,6 +3,29 @@
   
     
     <entry>
+      <title>站点导航</title>
+      <link href="/2018/12/03/navigation/"/>
+      <url>/2018/12/03/navigation/</url>
+      
+        <content type="html"><![CDATA[<h2 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h2><ul><li><a href="/2018/09/19/EasyML-1/">机器学习简介</a></li><li><a href="/2018/09/27/linear-regression/">线性回归</a></li><li><a href="/2018/11/03/logistic-regression/">逻辑回归</a></li><li><a href="/2018/11/18/neural-network/">人工神经网络</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Machine Learning </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Machine Learning </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>人工神经网络（Artificial Neural Network）</title>
       <link href="/2018/11/18/neural-network/"/>
       <url>/2018/11/18/neural-network/</url>
@@ -60,7 +83,7 @@
     </entry>
     
     <entry>
-      <title>线性回归</title>
+      <title>线性回归（Linear Regression）</title>
       <link href="/2018/09/27/linear-regression/"/>
       <url>/2018/09/27/linear-regression/</url>
       

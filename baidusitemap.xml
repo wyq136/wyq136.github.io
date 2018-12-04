@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://hf136.github.io/2018/09/27/linear-regression/</loc>
+    <lastmod>2018-12-04T15:39:24.701Z</lastmod>
+  </url>  <url>
+    <loc>http://hf136.github.io/2018/12/03/navigation/</loc>
+    <lastmod>2018-12-04T15:21:50.164Z</lastmod>
+  </url>  <url>
     <loc>http://hf136.github.io/2018/11/18/neural-network/</loc>
     <lastmod>2018-11-25T06:57:28.351Z</lastmod>
   </url>  <url>
@@ -9,9 +15,6 @@
   </url>  <url>
     <loc>http://hf136.github.io/2018/09/19/EasyML-1/</loc>
     <lastmod>2018-11-18T02:48:14.360Z</lastmod>
-  </url>  <url>
-    <loc>http://hf136.github.io/2018/09/27/linear-regression/</loc>
-    <lastmod>2018-11-17T13:22:27.012Z</lastmod>
   </url>  <url>
     <loc>http://hf136.github.io/2018/11/03/logistic-regression/</loc>
     <lastmod>2018-11-17T13:11:37.184Z</lastmod>

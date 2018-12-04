@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://hf136.github.io/2018/11/18/neural-network/</loc>
+    
+    <lastmod>2018-12-04T16:14:16.946Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://hf136.github.io/2018/09/27/linear-regression/</loc>
     
     <lastmod>2018-12-04T15:39:24.701Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>http://hf136.github.io/2018/12/03/navigation/</loc>
     
     <lastmod>2018-12-04T15:21:50.164Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://hf136.github.io/2018/11/18/neural-network/</loc>
-    
-    <lastmod>2018-11-25T06:57:28.351Z</lastmod>
     
   </url>
   

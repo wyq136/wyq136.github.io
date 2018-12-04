@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://hf136.github.io/resource/images/nn.png">
 <meta property="og:image" content="https://github.com/hf136/models/raw/master/docs/images/ann_res.png">
-<meta property="og:updated_time" content="2018-11-25T06:57:28.351Z">
+<meta property="og:updated_time" content="2018-12-04T16:14:16.946Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="人工神经网络（Artificial Neural Network）">
 <meta name="twitter:description" content="模型一个三层的神经网络模型如下：">
@@ -295,7 +295,7 @@
 <p>常见的激活函数有：sigmoid函数、Relu、tanh等。</p>
 <h3 id="前向计算"><a href="#前向计算" class="headerlink" title="前向计算"></a>前向计算</h3><p>设输入层、隐藏层和输出层的单元个数分别为 n，l， k，则3层的神经网络一共有 $n \cdot l + l \cdot k$ 个参数。</p>
 <p>$$<br>\begin{aligned}<br>z_2 =&amp; \Theta_1 X \\<br>a_2 =&amp; g(z_2) \\<br>z_3 =&amp; \Theta_2 a_2 \\<br>a_3 =&amp; g(z_3) \\<br>\hat{y} =&amp; a_3 \\<br>\end{aligned}<br>$$</p>
-<p>其中，X 是输入的特征向量，$\hat{y}$ 是神经网络输出的结果，$\Theta_1$ 是一个 n <em> l 的参数矩阵（输入层为n，隐藏层为l），$\Theta_2$ 是隐藏层到输出层的参数矩阵，大小为 l </em> k，$g(z)$ 为激活函数，这里使用sigmoid函数作为激活函数。这里的 $a, z$ 都是向量，函数 $g(z)$ 也是指对向量中的每一个元素做非线性变换。</p>
+<p>其中，X 是输入的特征向量，$\hat{y}$ 是神经网络输出的结果，$\Theta_1$ 是一个 $n \cdot l$ 的参数矩阵（输入层为n，隐藏层为l），$\Theta_2$ 是隐藏层到输出层的参数矩阵，大小为 $l \cdot k$，$g(z)$ 为激活函数，这里使用sigmoid函数作为激活函数。这里的 $a, z$ 都是向量，函数 $g(z)$ 也是指对向量中的每一个元素做非线性变换。</p>
 <h2 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h2><p>神经网络一般使用交叉熵，即使用和逻辑回归类似的损失函数，输出层的每一个输出单元是一个逻辑回归损失，并且求和。</p>
 <p>$$<br>\begin{aligned}<br>loss =  J(\theta) = &amp; \frac{1}{m} \sum_{i=1}^{m} \sum_{i=1}^{K} Cost(\hat{y}^i_k - y^i_k) \\<br>= &amp; -  \frac{1}{m} \sum_{i=1}^{m} \sum_{i=1}^{K} [y^i_k \log{\hat{y}^i_k} + (1- y^i_k) \log{(1 - \hat{y}^i_k)}]<br>\end{aligned}<br>$$</p>
 <p>其中，K 输出层输出单元个数， m 为训练样本数，$\hat{y}^i_k$ 为第i个样本的第k个输出单元的输出结果。</p>
@@ -304,8 +304,8 @@
 <h2 id="计算梯度"><a href="#计算梯度" class="headerlink" title="计算梯度"></a>计算梯度</h2><p>使用链式求导法则计算梯度，$\Theta_2$ 的梯度为：</p>
 <p>$$<br>\frac{\partial J}{\partial\Theta_2} = \frac{\partial J}{\partial \hat{y}} \frac{\partial \hat{y}}{\partial z_3}   \frac{\partial z_3}{\partial \Theta_2} = (-\frac{y}{\hat{y}} + \frac{1-y}{1-\hat{y}}) (\hat{y}(1-\hat{y})) \cdot a_2 = (\hat{y} - y) \cdot a_2<br>$$</p>
 <p>$\Theta_1$ 的梯度为：</p>
-<p>$$<br>∂\frac{\partial J}{\partial\Theta_1} = \frac{\partial J}{\partial \hat{y}}   \frac{\partial \hat{y}}{\partial z_3}   \frac{\partial z_3}{\partial a_2}    \frac{\partial a_2}{\partial z_2}  \frac{\partial z_2}{\partial \Theta_1} = {(\hat{y} - y) \Theta_2 [a_2(1-a_2)]} \cdot X<br>$$</p>
-<p>这实际上也就是反向传播（Backpropagation）算法。</p>
+<p>$$<br>\frac{\partial J}{\partial\Theta_1} = \frac{\partial J}{\partial \hat{y}}   \frac{\partial \hat{y}}{\partial z_3}   \frac{\partial z_3}{\partial a_2}    \frac{\partial a_2}{\partial z_2}  \frac{\partial z_2}{\partial \Theta_1} = {(\hat{y} - y) \Theta_2 [a_2(1-a_2)]} \cdot X<br>$$</p>
+<p>这实际上也就是反向传播（Backpropagation）算法。令 $\delta^L = \hat{y} - y$ ，则 $\delta^{l-1} = \delta^l \Theta_{l-1} [a_{l-1}(1-a_{l-1})]$ ，梯度 $\Delta^l = \delta^{l+1} a_l$ 。</p>
 <p><strong>注意</strong>：上面两个式子中的 $\Theta， a，z， \hat{y}$ 指的是矩阵或者向量中的元素分别求偏导数，上面这么写是为了简便。求导过程写成矩阵运算的形式也更方便，需注意进行相应的转置变换。</p>
 <p>随着模型结构越来越复杂，每次都去计算梯度比较复杂，现在已经有很多深度学习框架可以进行<strong>自动微分</strong>计算梯度。下面我们还是使用链式求导法则来自己计算一下神经网络的梯度。</p>
 <h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><p><a href="https://github.com/hf136/models/blob/master/ArtificialNeuralNetwork/raw_neural_network.py" target="_blank" rel="noopener">完整代码</a></p>
@@ -323,7 +323,7 @@
         <p><span>本文标题:</span><a href="/2018/11/18/neural-network/">人工神经网络（Artificial Neural Network）</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">wyq</a></p>
         <p><span>发布时间:</span>2018-11-18, 10:30:33</p>
-        <p><span>最后更新:</span>2018-11-25, 14:57:28</p>
+        <p><span>最后更新:</span>2018-12-05, 00:14:16</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/11/18/neural-network/" title="人工神经网络（Artificial Neural Network）">http://hf136.github.io/2018/11/18/neural-network/</a>
             <span class="copy-path" data-clipboard-text="原文: http://hf136.github.io/2018/11/18/neural-network/　　作者: wyq" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

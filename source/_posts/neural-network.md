@@ -38,7 +38,7 @@ a_3 =& g(z_3) \\\\
 \end{aligned}
 $$
 
-其中，X 是输入的特征向量，$\hat{y}$ 是神经网络输出的结果，$\Theta_1$ 是一个 n * l 的参数矩阵（输入层为n，隐藏层为l），$\Theta_2$ 是隐藏层到输出层的参数矩阵，大小为 l * k，$g(z)$ 为激活函数，这里使用sigmoid函数作为激活函数。这里的 $a, z$ 都是向量，函数 $g(z)$ 也是指对向量中的每一个元素做非线性变换。
+其中，X 是输入的特征向量，$\hat{y}$ 是神经网络输出的结果，$\Theta_1$ 是一个 $n \cdot l$ 的参数矩阵（输入层为n，隐藏层为l），$\Theta_2$ 是隐藏层到输出层的参数矩阵，大小为 $l \cdot k$，$g(z)$ 为激活函数，这里使用sigmoid函数作为激活函数。这里的 $a, z$ 都是向量，函数 $g(z)$ 也是指对向量中的每一个元素做非线性变换。
 
 ## 损失函数
 
@@ -70,10 +70,10 @@ $$
 $\Theta_1$ 的梯度为：
 
 $$
-∂\frac{\partial J}{\partial\Theta_1} = \frac{\partial J}{\partial \hat{y}}   \frac{\partial \hat{y}}{\partial z_3}   \frac{\partial z_3}{\partial a_2}    \frac{\partial a_2}{\partial z_2}  \frac{\partial z_2}{\partial \Theta_1} = \{(\hat{y} - y) \Theta_2 [a_2(1-a_2)]\} \cdot X
+\frac{\partial J}{\partial\Theta_1} = \frac{\partial J}{\partial \hat{y}}   \frac{\partial \hat{y}}{\partial z_3}   \frac{\partial z_3}{\partial a_2}    \frac{\partial a_2}{\partial z_2}  \frac{\partial z_2}{\partial \Theta_1} = \{(\hat{y} - y) \Theta_2 [a_2(1-a_2)]\} \cdot X
 $$
 
-这实际上也就是反向传播（Backpropagation）算法。
+这实际上也就是反向传播（Backpropagation）算法。令 $\delta^L = \hat{y} - y$ ，则 $\delta^{l-1} = \delta^l \Theta_{l-1} [a_{l-1}(1-a_{l-1})]$ ，梯度 $\Delta^l = \delta^{l+1} a_l$ 。
 
 **注意**：上面两个式子中的 $\Theta， a，z， \hat{y}$ 指的是矩阵或者向量中的元素分别求偏导数，上面这么写是为了简便。求导过程写成矩阵运算的形式也更方便，需注意进行相应的转置变换。
 

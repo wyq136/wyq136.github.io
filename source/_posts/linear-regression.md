@@ -1,4 +1,4 @@
-title: 线性回归
+title: 线性回归（Linear Regression）
 description: ' '
 date: 2018-09-27 22:30:33
 categories: Machine Learning

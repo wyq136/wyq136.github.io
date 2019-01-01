@@ -362,7 +362,14 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-               
+              <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>在自然语言处理（NLP）中，需要处理的数据通常都是不定长的。例如，我们要构建一个神经网络模型，将下面这两句话翻译成英文：</p>
+<ul>
+<li>这一世诺言从不曾忘。</li>
+<li>深度学习的概念源于人工神经网络的研究。</li>
+</ul>
+<p>这两句话的长度是不一样的，一般的神经网络输入的特征纬度是固定的，显然不能很好的解决这个问题，于是便出现了循环神经网络（Recurrent Neural Network，RNN）。</p>
+<h2 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h2><h3 id="基本的循环神经网络"><a href="#基本的循环神经网络" class="headerlink" title="基本的循环神经网络"></a>基本的循环神经网络</h3><p>一个最基本的循环神经网络由输入层，隐藏层和输出层构成，如下图所示：</p>
+<p><img src="/resource/images/rnn-1.jpg" alt="rnn-1"></p>
           
       
     </div>
@@ -797,7 +804,7 @@
         <div id="footer-info">
             <div class="footer-left">
                 <i class="fa fa-copyright"></i> 
-                2018 wyq
+                2018-2019 wyq
             </div>
             <div class="footer-right">
                 <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a></i>

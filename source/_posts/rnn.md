@@ -39,17 +39,17 @@ tags:
 RNN的每时间步的计算过程如下：
 $$
 \begin{aligned}
-s_t =& g(Ux_t + Ws_{t-1}) \\\\
+s_t =& g(Ux_t + Ws_{t-1} + b) \\\\
 o_t =& f(Vs_t)
 \end{aligned}
 $$
 
-其中，g、f 是激活函数，隐藏层 s 的初始值 $s_0$ 为零向量。
+其中，g、f 是激活函数，s 为隐藏层的值， b 是偏差项；隐藏层 s 的初始值 $s_0$ 为零向量。
 
 可以看出，RNN网络最后输出的结果受到所有输入序列 $x_1, x_2 ... x_T$ 的影响。因为隐藏 $s_{t-1}$ 保存了前面 t-1 个 x 值的结果，隐藏层 s 充当了一个“记忆”的角色。
 
 ### 优化目标
-同样是求使得损失函数最小的权重 U 、 W 、V ；损失函数的形式根据具体的任务会有所不同。
+同样是求使得损失函数最小的权重 U 、 W 、V 、b；损失函数的形式根据具体的任务会有所不同。
 
 ### 梯度计算
 
@@ -57,8 +57,122 @@ $$
 
 虽然名字听上去很高大上的样子，但其实并不复杂，和普通的反向传播算法也差不多，把RNN展开之后，一样可以使用链式求导，这其实就很简单了。
 
+![RNN backward](/resource/images/rnn-3.png)
+
+如上图所示，把 RNN 展开之后，RNN 每一时刻的反向传播求导过程和普通的神经网络是一样。根据任务的不同，有可能每一个时刻都有误差传递，也可能只有最后一个时刻有误差传递。
+
+展开后的 RNN 可以看成共享权重的全连接神经网络模型，只要使用链式求导分别求出每一个时刻的权重梯度，最后再把所有时刻的梯度相加求和就可以得到最终的 RNN 权重梯度。
+
 ## 梯度爆炸和梯度消失
+
+在序列很长的时候，RNN 模型训练过程中，很容易出现梯度爆炸（梯度很大）或者梯度消失（梯度几乎为0）的问题，导致模型无法正常拟合。
+
+这是为什么呢？
+
+链式求导求解梯度的过程其实一个连乘的过程： 
+$$
+\frac{\partial{S_n}}{\partial{S_{n-1}}} \frac{\partial{S_{n-1}}}{\partial{S_{n-2}}} ... \frac{\partial{S_2}}{\partial{S_1}}
+$$
+当序列很长的时候，如果每个阶段梯度都大于1的话，梯度就会爆炸，比如: $10^9$ ；如果每个阶段梯度都小于1的话，梯度就会消失，比如: $0.1^9$ ；
+
+对于梯度消失，其实指的是长距离的梯度消失，相隔距离过长的输入值 $x_t$ 相互之间影响很小。由于整个模型的梯度是各个时刻梯度之和，所以模型的梯度还不会消失。
 
 ## 代码实现
 
+这里实现了一个简单的 RNN 模型，其中激活函数使用的是 Relu 激活函数。[完整代码](https://github.com/hf136/models/tree/master/RNN)
+
+一个 RNN 时间步的计算过程，其实就和普通的神经网络是一致的。
+
+``` python
+class RNNCell:
+    """
+    一个 RNN 时间步的计算过程
+    """
+    def __init__(self, in_size, hidden_size):
+        self.in_size = in_size
+        self.hidden_size = hidden_size
+        self.w_i2h = np.random.normal(0, 0.1, (in_size, hidden_size))
+        self.w_h2h = np.random.normal(0, 0.1, (hidden_size, hidden_size))
+        self.bias = np.random.normal(0, 0.1, (1, hidden_size))
+
+    def relu(self, x):
+        x[x < 0] = 0
+        return x
+
+    def forward(self, x, h):
+        self.i2h = x.dot(self.w_i2h)
+        self.h2h = h.dot(self.w_h2h)
+        self.h_relu = self.relu(self.i2h + self.h2h + self.bias)
+        return self.h_relu
+
+    def backward(self, grad, i, h):
+        if i.ndim == 1:
+            i = np.expand_dims(i, axis=0)
+        if h.ndim == 1:
+            h = np.expand_dims(h, axis=0)
+
+        self.grad_h_relu = grad
+        self.grad_h = self.grad_h_relu.copy()
+        self.grad_h[h < 0] = 0
+        self.grad_w_h2h = h.T.dot(self.grad_h)
+        self.grad_w_i2h = i.T.dot(self.grad_h)
+        self.grad_bias = self.grad_h
+        self.grad_h_in = self.grad_h.dot(self.w_h2h)
+
+        return self.grad_h_in
+
+    def update_weight(self, lr):
+        self.w_i2h -= lr * self.grad_w_i2h
+        self.w_h2h -= lr * self.grad_w_h2h
+        self.bias -= lr * self.grad_bias
+
+```
+
+完整的 RNN 序列计算过程。
+
+``` python
+class RNN:
+    """
+    完整的 RNN 序列计算过程
+    """
+    def __init__(self, in_size, hidden_size):
+        self.h_state = []
+        self.in_size = in_size
+        self.hidden_size = hidden_size
+        self.rnncell = RNNCell(in_size, hidden_size)
+
+    def forward(self, x):
+        self.h_state = []
+        self.x = x
+        h = np.zeros(self.hidden_size)
+        for i in x:
+            self.h_state.append(h)
+            h = self.rnncell.forward(i, h)
+        self.h_out = h
+        return self.h_out
+
+    def backward(self, grad):
+        self.grad_w_i2h = np.zeros((self.in_size, self.hidden_size))
+        self.grad_w_h2h = np.zeros((self.hidden_size, self.hidden_size))
+        self.grad_bias = np.zeros((1, self.hidden_size))
+
+        for i in range(len(self.h_state) - 1, -1, -1):
+            x = self.x[i]
+            h = self.h_state[i]
+            grad = self.rnncell.backward(grad, x, h)
+            self.grad_w_i2h += self.rnncell.grad_w_i2h
+            self.grad_w_h2h += self.rnncell.grad_w_h2h
+            self.grad_bias += self.rnncell.grad_bias
+        return grad
+
+    def update_weight(self, lr):
+        self.rnncell.w_i2h -= lr * self.grad_w_i2h
+        self.rnncell.w_h2h -= lr * self.grad_w_h2h
+        self.rnncell.bias -= lr * self.grad_bias
+        return self.rnncell.w_i2h, self.rnncell.w_h2h, self.rnncell.bias
+
+```
+
 ## 参考资料
+
+https://zybuluo.com/hanbingtao/note/541458

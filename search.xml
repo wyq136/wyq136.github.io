@@ -29,7 +29,7 @@
       <link href="/2018/12/03/navigation/"/>
       <url>/2018/12/03/navigation/</url>
       
-        <content type="html"><![CDATA[<h2 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h2><ul><li><a href="/2018/09/19/EasyML-1/">机器学习简介</a></li><li><a href="/2018/09/27/linear-regression/">线性回归</a></li><li><a href="/2018/11/03/logistic-regression/">逻辑回归</a></li><li><a href="/2018/11/18/neural-network/">人工神经网络</a></li><li><a href="/2018/12/28/rnn/">循环神经网络</a></li></ul><h2 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h2><ul><li>lstm</li><li>cnn</li><li>word2vec</li><li>textCNN</li><li>seq2seq</li><li>attention</li><li>self attention</li><li>graph attention</li><li>BERT</li><li>目标检测</li><li>推荐算法</li><li>生成网络</li><li>DQN</li><li>…</li></ul>]]></content>
+        <content type="html"><![CDATA[<h2 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h2><ul><li><a href="/2018/09/19/EasyML-1/">机器学习简介</a></li><li><a href="/2018/09/27/linear-regression/">线性回归</a></li><li><a href="/2018/11/03/logistic-regression/">逻辑回归</a></li><li><a href="/2018/11/18/neural-network/">人工神经网络</a></li><li><a href="/2018/12/28/rnn/">循环神经网络</a></li><li><a href="/2019/01/19/LSTM/">LSTM</a></li></ul><h2 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h2><ul><li>cnn</li><li>word2vec</li><li>textCNN</li><li>seq2seq</li><li>attention</li><li>self attention</li><li>graph attention</li><li>BERT</li><li>目标检测</li><li>推荐算法</li><li>生成网络</li><li>DQN</li><li>…</li></ul>]]></content>
       
       
       <categories>

@@ -3,6 +3,17 @@
   
     
     <entry>
+      <title>LSTM</title>
+      <link href="/2019/01/19/LSTM/"/>
+      <url>/2019/01/19/LSTM/</url>
+      
+        <content type="html"><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>LSTM全称是 Long Short Term Memory Network（长短时记忆网络），它也是一种循环神经网络（RNN）算法。</p><a id="more"></a><p>在普通的 RNN 中，经常会出现以下两个问题：</p><ul><li>梯度爆炸：梯度太大导致程序出错</li><li>梯度消失：原始RNN无法处理长距离依赖</li></ul><p>梯度爆炸相对来说比较好解决，比如：可以设置一个梯度阈值，当梯度超过这个阈值的时候可以直接截取。而相对于梯度消失来说，这个会比较难解决一些。</p><p>LSTM 算法的出现就是为了解决梯度消失的问题。</p><h2 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h2><p>为了解决 RNN 模型中长距离依赖梯度消失的问题，LSTM 中引入了一个新的记忆单元，以及三个门：输入门、遗忘门和输出门。</p><h3 id="前向计算"><a href="#前向计算" class="headerlink" title="前向计算"></a>前向计算</h3><p><img src="/resource/images/lstm-cell.png" alt="lstm cell"></p><p>$$<br>\begin{aligned}<br>i_t =&amp; \sigma(W_{ii}x_t + W_{hi}h_{t-1} + b_i) \\<br>f_t =&amp; \sigma(W_{if}x_t + W_{hf}h_{t-1} + b_f) \\<br>o_t =&amp; \sigma(W_{io}x_t + W_{ho}h_{t-1} + b_o) \\<br>g_t =&amp; \tanh(W_{ig}x_t + W_{hg}h_{t-1} + b_g) \\<br>c_t =&amp; f_t \times c_{t-1} + i_t \times g_t \\<br>h_t =&amp; o_t \times \tanh c_t \\<br>\end{aligned}<br>$$</p><p>其中，$i_t, f_t, o_t$ 分别为输入、遗忘、输出门； $g_t$ 是当前时刻前馈计算的结果； $c_t$ 是长期记忆单元， $h_t$ 是这一个时刻 LSTM 网络的输出结果。$\sigma$ 是 sgmoid 激活函数，$\times$ 是指向量的对应值相乘。</p><h3 id="梯度计算"><a href="#梯度计算" class="headerlink" title="梯度计算"></a>梯度计算</h3><p>LSTM 的梯度计算和 RNN 的差不多，只是多了一些运算。</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    <entry>
       <title>循环神经网络（Recurrent Neural Network）</title>
       <link href="/2018/12/28/rnn/"/>
       <url>/2018/12/28/rnn/</url>
@@ -18,7 +29,7 @@
       <link href="/2018/12/03/navigation/"/>
       <url>/2018/12/03/navigation/</url>
       
-        <content type="html"><![CDATA[<h2 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h2><ul><li><a href="/2018/09/19/EasyML-1/">机器学习简介</a></li><li><a href="/2018/09/27/linear-regression/">线性回归</a></li><li><a href="/2018/11/03/logistic-regression/">逻辑回归</a></li><li><a href="/2018/11/18/neural-network/">人工神经网络</a></li><li><a href="/2018/12/28/rnn/">循环神经网络</a></li></ul><h2 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h2><ul><li>lstm</li><li>cnn</li><li>word2vec</li><li>textCNN</li><li>seq2seq</li><li>attention</li><li>self attention</li><li>BERT</li><li>目标检测</li><li>推荐算法</li><li>生成网络</li><li>DQN</li><li>…</li></ul>]]></content>
+        <content type="html"><![CDATA[<h2 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h2><ul><li><a href="/2018/09/19/EasyML-1/">机器学习简介</a></li><li><a href="/2018/09/27/linear-regression/">线性回归</a></li><li><a href="/2018/11/03/logistic-regression/">逻辑回归</a></li><li><a href="/2018/11/18/neural-network/">人工神经网络</a></li><li><a href="/2018/12/28/rnn/">循环神经网络</a></li></ul><h2 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h2><ul><li>lstm</li><li>cnn</li><li>word2vec</li><li>textCNN</li><li>seq2seq</li><li>attention</li><li>self attention</li><li>graph attention</li><li>BERT</li><li>目标检测</li><li>推荐算法</li><li>生成网络</li><li>DQN</li><li>…</li></ul>]]></content>
       
       
       <categories>

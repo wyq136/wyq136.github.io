@@ -22,6 +22,7 @@ tags:
 - seq2seq
 - attention
 - self attention
+- graph attention
 - BERT
 - 目标检测
 - 推荐算法

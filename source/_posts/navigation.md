@@ -13,9 +13,9 @@ tags:
 - [逻辑回归](/2018/11/03/logistic-regression/)
 - [人工神经网络](/2018/11/18/neural-network/)
 - [循环神经网络](/2018/12/28/rnn/)
+- [LSTM](/2019/01/19/LSTM/)
 
 ## TODO
-- lstm
 - cnn
 - word2vec
 - textCNN

@@ -39,8 +39,12 @@ h_t =& o_t \times \tanh c_t \\\\
 \end{aligned}
 $$
 
-其中，$i_t, f_t, o_t$ 分别为输入、遗忘、输出门； $g_t$ 是当前时刻前馈计算的结果； $c_t$ 是长期记忆单元， $h_t$ 是这一个时刻 LSTM 网络的输出结果。$\sigma$ 是 sgmoid 激活函数，$\times$ 是指向量的对应值相乘。
+在上图和公式中，$i_t, f_t, o_t$ 分别为输入、遗忘、输出门； $g_t$ （图中为$c^\prime_i$）是当前时刻前馈计算的结果； $c_t$ 是长期记忆单元， $h_t$ 是这一个时刻 LSTM 网络的输出结果。$\sigma$ 是 sigmoid 激活函数，$\times$ 是指向量的对应值相乘。
 
 ### 梯度计算
 
-LSTM 的梯度计算和 RNN 的差不多，只是多了一些运算。
+LSTM 的梯度计算和 RNN 的差不多，只是多了一些参数复杂一些。我们可以使用梯度检查的方法来检验计算的梯度是否正确。
+
+## 代码实现
+
+[完整代码](https://github.com/hf136/models/tree/master/LSTM)

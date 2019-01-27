@@ -14,13 +14,10 @@ tags:
 - [人工神经网络](/2018/11/18/neural-network/)
 - [循环神经网络](/2018/12/28/rnn/)
 - [LSTM](/2019/01/19/LSTM/)
+- [Attention——深度学习中的注意力机制](/2019/01/27/attention/)
 
 ## TODO
-- cnn
 - word2vec
-- textCNN
-- seq2seq
-- attention
 - self attention
 - graph attention
 - BERT

@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://hf136.github.io/2019/01/27/attention/</loc>
+    <lastmod>2019-01-27T10:15:21.026Z</lastmod>
+  </url>  <url>
+    <loc>http://hf136.github.io/2018/12/03/navigation/</loc>
+    <lastmod>2019-01-27T09:22:22.056Z</lastmod>
+  </url>  <url>
+    <loc>http://hf136.github.io/2018/12/28/rnn/</loc>
+    <lastmod>2019-01-27T02:26:52.573Z</lastmod>
+  </url>  <url>
     <loc>http://hf136.github.io/2019/01/19/LSTM/</loc>
     <lastmod>2019-01-25T15:31:35.575Z</lastmod>
   </url>  <url>
@@ -12,12 +21,6 @@
   </url>  <url>
     <loc>http://hf136.github.io/2018/09/27/linear-regression/</loc>
     <lastmod>2019-01-25T15:31:19.158Z</lastmod>
-  </url>  <url>
-    <loc>http://hf136.github.io/2018/12/03/navigation/</loc>
-    <lastmod>2019-01-20T14:41:06.762Z</lastmod>
-  </url>  <url>
-    <loc>http://hf136.github.io/2018/12/28/rnn/</loc>
-    <lastmod>2019-01-19T07:20:16.563Z</lastmod>
   </url>  <url>
     <loc>http://hf136.github.io/2018/11/17/regularization/</loc>
     <lastmod>2018-11-18T03:18:29.636Z</lastmod>

@@ -84,33 +84,6 @@
   </entry>
   
   <entry>
-    <title>站点导航</title>
-    <link href="http://hf136.github.io/2018/12/03/navigation/"/>
-    <id>http://hf136.github.io/2018/12/03/navigation/</id>
-    <published>2018-12-03T15:09:46.000Z</published>
-    <updated>2019-01-27T09:22:22.056Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h2><ul><li><a href="/2018/09/19/EasyML-1/">机器学习简介</a></li><li><a href="/2018/09/27/linear-regression/">线性回归</a></li><li><a href="/2018/11/03/logistic-regression/">逻辑回归</a></li><li><a href="/2018/11/18/neural-network/">人工神经网络</a></li><li><a href="/2018/12/28/rnn/">循环神经网络</a></li><li><a href="/2019/01/19/LSTM/">LSTM</a></li><li><a href="/2019/01/27/attention/">Attention——深度学习中的注意力机制</a></li></ul><h2 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h2><ul><li>word2vec</li><li>self attention</li><li>graph attention</li><li>BERT</li><li>目标检测</li><li>推荐算法</li><li>生成网络</li><li>DQN</li><li>…</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;机器学习&quot;&gt;&lt;a href=&quot;#机器学习&quot; class=&quot;headerlink&quot; title=&quot;机器学习&quot;&gt;&lt;/a&gt;机器学习&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;/2018/09/19/EasyML-1/&quot;&gt;机器学习简介&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a h
-      
-    
-    </summary>
-    
-      <category term="Machine Learning" scheme="http://hf136.github.io/categories/Machine-Learning/"/>
-    
-    
-      <category term="Machine Learning" scheme="http://hf136.github.io/tags/Machine-Learning/"/>
-    
-  </entry>
-  
-  <entry>
     <title>人工神经网络（Artificial Neural Network）</title>
     <link href="http://hf136.github.io/2018/11/18/neural-network/"/>
     <id>http://hf136.github.io/2018/11/18/neural-network/</id>

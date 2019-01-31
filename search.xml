@@ -36,29 +36,6 @@
     </entry>
     
     <entry>
-      <title>站点导航</title>
-      <link href="/2018/12/03/navigation/"/>
-      <url>/2018/12/03/navigation/</url>
-      
-        <content type="html"><![CDATA[<h2 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h2><ul><li><a href="/2018/09/19/EasyML-1/">机器学习简介</a></li><li><a href="/2018/09/27/linear-regression/">线性回归</a></li><li><a href="/2018/11/03/logistic-regression/">逻辑回归</a></li><li><a href="/2018/11/18/neural-network/">人工神经网络</a></li><li><a href="/2018/12/28/rnn/">循环神经网络</a></li><li><a href="/2019/01/19/LSTM/">LSTM</a></li><li><a href="/2019/01/27/attention/">Attention——深度学习中的注意力机制</a></li></ul><h2 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h2><ul><li>word2vec</li><li>self attention</li><li>graph attention</li><li>BERT</li><li>目标检测</li><li>推荐算法</li><li>生成网络</li><li>DQN</li><li>…</li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> Machine Learning </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Machine Learning </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
       <title>人工神经网络（Artificial Neural Network）</title>
       <link href="/2018/11/18/neural-network/"/>
       <url>/2018/11/18/neural-network/</url>
